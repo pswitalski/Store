@@ -39,6 +39,10 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         background-color: ${props => props.theme.colors.background};
+        color: ${props => props.theme.colors.font};
         font-family: ${props => props.theme.fontFamily};
+        font-size: ${props => props.theme.fontSize.body14_22};
+        font-weight: ${props => props.theme.fontWeight.body14_22};
+        line-height: ${props => props.theme.lineHeight.body14_22};
     }
 `;
