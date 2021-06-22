@@ -4,8 +4,15 @@ import SpartanRegular from 'assets/fonts/spartan/Spartan-Regular.ttf';
 import SpartanMedium from 'assets/fonts/spartan/Spartan-Medium.ttf';
 import SpartanSemiBold from 'assets/fonts/spartan/Spartan-SemiBold.ttf';
 import SpartanBold from 'assets/fonts/spartan/Spartan-Bold.ttf';
+import Playfair from 'assets/fonts/playfair/PlayfairDisplay-Bold.ttf';
 
 export const GlobalStyle = createGlobalStyle`
+    @font-face {
+        font-family: 'Playfair Display';
+        src: url(${Playfair});
+        font-weight: 700;
+    }
+
     @font-face {
         font-family: 'Spartan';
         src: url(${SpartanRegular});

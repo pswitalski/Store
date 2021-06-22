@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-    display: flex;
-    justify-content: center;
-    align-content: center;
     width: 100%;
     height: 24px;
     background-color: ${props => props.theme.colors.dark};

@@ -5,6 +5,7 @@ import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
 
 import Header from 'components/Header/Header';
+import Nav from 'components/Nav/Nav';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <ThemeProvider theme={theme} >
         <GlobalStyle />
         <Header />
+        <Nav />
       </ThemeProvider>
     </div>
   );

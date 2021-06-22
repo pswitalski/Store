@@ -12,6 +12,7 @@ export const theme = {
         font: '#C4C4C4'
     },
     fontFamily: '"Spartan", "Arial", sans-serif',
+    logoFontFamily: "'Playfair Display', serif",
     fontSize: {
         title36_42: '36px',
         title26_36: '26px',
