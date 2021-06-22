@@ -10,6 +10,7 @@ export const theme = {
         ok: '#0BB17F',
         background: '#E5E5E5'
     },
+    fontFamily: '"Spartan", "Arial", sans-serif',
     fontSize: {
         title36_42: '36px',
         title26_36: '26px',
