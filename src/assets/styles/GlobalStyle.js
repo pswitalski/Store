@@ -10,4 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     *::after, *::before {
         box-sizing: inherit;
     }
+
+    body {
+        background-color: ${props => props.theme.colors.background};
+    }
 `;
