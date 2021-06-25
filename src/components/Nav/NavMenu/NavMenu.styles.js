@@ -9,5 +9,9 @@ export const StyledNavMenu = styled.nav`
 
     ${ StyledNav }:hover & {
         display: block;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
     }
 `;

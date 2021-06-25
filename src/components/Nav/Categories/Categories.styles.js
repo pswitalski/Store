@@ -8,6 +8,10 @@ export const StyledUl = styled.ul`
     margin: auto 0;
     height: 100%;
     overflow: hidden;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 `;
 
 export const StyledLi = styled.li`

@@ -5,8 +5,8 @@ import ButtonCounter from './ButtonCounter/ButtonCounter';
 
 import { StyledButton } from './ControlButton.styles';
 
-const ControlButton = ({icon, alt, counter}) => (
-    <StyledButton>
+const ControlButton = ({icon, alt, counter, mobile}) => (
+    <StyledButton className={mobile ? 'mobile' : ''} >
         <img src={icon} alt={alt} />
         {counter ? <ButtonCounter value={counter} /> : ''}
     </StyledButton>
@@ -15,7 +15,8 @@ const ControlButton = ({icon, alt, counter}) => (
 ControlButton.propTypes = {
     icon: PropTypes.string,
     alt: PropTypes.string,
-    counter: PropTypes.number
+    counter: PropTypes.number,
+    mobile: PropTypes.bool
 }
 
 export default ControlButton;
