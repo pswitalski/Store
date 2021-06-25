@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import NavMenu from 'components/Nav/NavMenu/NavMenu';
 import Logo from 'components/Nav/Logo/Logo';
@@ -8,7 +8,19 @@ import Controls from './Controls/Controls';
 import { Wrapper } from 'assets/styles/Wrapper';
 import { StyledNav, StyledDiv } from 'components/Nav/Nav.styles';
 
-const Nav = () => (
+import { useDispatch } from 'react-redux';
+import { getCategories } from 'features/categories/categoriesSlice';
+import { getCategoriesFromApi } from 'features/categories/getCategoriesFromApi';
+
+const Nav = () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        const categories = getCategoriesFromApi();
+    }, [])
+
+return(
     <StyledNav>
         <Wrapper>
             <StyledDiv>
@@ -20,5 +32,6 @@ const Nav = () => (
         <NavMenu />
     </StyledNav>
 )
+}
 
 export default Nav;
