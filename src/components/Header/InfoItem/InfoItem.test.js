@@ -4,7 +4,7 @@ import InfoItem from './InfoItem';
 import { renderWithProviders } from 'helpers/renderWithProviders';
 import image from 'assets/icons/star.png';
 
-test("renders component", async () => {
+test("renders component", () => {
     render(renderWithProviders(<InfoItem content='Warsaw' alt="city" icon={image} />));
     screen.getByText('Warsaw');
     screen.getByAltText('city');
