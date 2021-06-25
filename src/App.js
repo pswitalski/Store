@@ -16,6 +16,7 @@ function App() {
           <GlobalStyle />
           <Header />
           <Nav />
+          <p>lorem</p>
         </ThemeProvider>
       </BrowserRouter>
     </div>
