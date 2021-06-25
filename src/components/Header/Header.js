@@ -16,7 +16,7 @@ import pinterest from 'assets/icons/logo-pinterest 1.png';
 
 
 const Header = () => (
-    <StyledHeader>
+    <StyledHeader data-testid="header" >
         <Wrapper>
             <StyledDiv>
                 <StyledList>
