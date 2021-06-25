@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
 
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
@@ -10,11 +11,13 @@ import Nav from 'components/Nav/Nav';
 function App() {
   return (
     <div className="App">
-      <ThemeProvider theme={theme} >
-        <GlobalStyle />
-        <Header />
-        <Nav />
-      </ThemeProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme} >
+          <GlobalStyle />
+          <Header />
+          <Nav />
+        </ThemeProvider>
+      </BrowserRouter>
     </div>
   );
 }

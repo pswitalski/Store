@@ -1,7 +1,44 @@
 import styled from "styled-components";
 
+import { NavLink } from "react-router-dom";
+
 export const StyledUl = styled.ul`
     display: flex;
     list-style: none;
     margin: auto 0;
+    height: 100%;
+    overflow: hidden;
+`;
+
+export const StyledLi = styled.li`
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+`;
+
+export const StyledNavLink = styled(NavLink)`
+    color: ${props => props.theme.colors.dark};
+    text-decoration: none;
+    padding: 0 12px;
+    height: 100%;
+    text-transform: capitalize;
+    position: relative;
+    line-height: 66px;
+
+    &.active {
+        font-weight: 600;
+    }
+
+    &.active::after {
+        display: block;
+        content: '';
+        width: 20px;
+        height: 20px;
+        background-color: black;
+        position: absolute;
+        left: 50%;
+        bottom: -12px;
+        transform: translateX(-50%) rotate(45deg);
+    }
 `;

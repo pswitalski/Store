@@ -17,6 +17,10 @@ export const StyledNav = styled.nav`
         width: 100%;
         height: 2px;
     }
+
+    &:hover::after {
+        background-color: ${props => props.theme.colors.dark};
+    }
 `;
 
 export const StyledDiv = styled.div`

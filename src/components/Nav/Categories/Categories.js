@@ -1,13 +1,16 @@
 import React from 'react';
 
-import { StyledUl } from './Categories.styles';
+import { StyledUl, StyledLi, StyledNavLink } from './Categories.styles';
 
 const Categories = () => (
-    <StyledUl>
-        <li>lorem</li>
-        <li>lorem</li>
-        <li>lorem</li>
-    </StyledUl>
+
+        <StyledUl>
+            <StyledLi><StyledNavLink exact to="/" >lorem</StyledNavLink></StyledLi>
+            <StyledLi><StyledNavLink to="/men" >lorem</StyledNavLink></StyledLi>
+            <StyledLi><StyledNavLink to="/women" >lorem</StyledNavLink></StyledLi>
+        </StyledUl>
+
+
 )
 
 export default Categories;

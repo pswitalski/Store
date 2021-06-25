@@ -21,6 +21,7 @@ export const StyledImg = styled.img`
 export const StyledP = styled.p`
     opacity: 0.8;
     font-size: ${props => props.theme.fontSize.small11_18};
+    line-height: 24px;
     font-weight: ${props => props.theme.fontWeight.small11_18};
     color: white;
     margin-left: 10px;
