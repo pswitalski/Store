@@ -7,6 +7,7 @@ export const getCategoriesFromApi = async () => {
             throw new Error(response.status)
         }
         const json = await response.json();
+        console.log(json);
         return(json);
     } catch(err) {
         alert(err)

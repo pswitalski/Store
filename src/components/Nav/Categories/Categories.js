@@ -12,7 +12,7 @@ const Categories = () => {
     const createCategories = (list) => {
         const categoriesComponents = list.map((category) => {
             return(
-                <StyledLi key={category} ><StyledNavLink exact to="/" >{category}</StyledNavLink></StyledLi>
+                <StyledLi key={category} ><StyledNavLink to={`/${category}`} >{category}</StyledNavLink></StyledLi>
             )
         });
         return(

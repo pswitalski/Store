@@ -6,7 +6,7 @@ import { Wrapper } from 'assets/styles/Wrapper';
 const NavMenu = () => (
     <StyledNavMenu>
         <Wrapper>
-            navMenu
+            navMenu /only best sellers/
         </Wrapper>
     </StyledNavMenu>
 )

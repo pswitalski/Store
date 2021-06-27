@@ -16,10 +16,14 @@ function App() {
 
   const dispatch = useDispatch();
 
-  useEffect( async () => {
-    const categories = await getCategoriesFromApi();
-    dispatch(addCategories(categories));
-  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const categories = await getCategoriesFromApi();
+      dispatch(addCategories(categories));
+    }
+    fetchData();
+
+  }, [dispatch]);
 
   return (
     <div className="App">

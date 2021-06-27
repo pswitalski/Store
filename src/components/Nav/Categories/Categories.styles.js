@@ -19,6 +19,7 @@ export const StyledLi = styled.li`
     display: flex;
     align-content: center;
     justify-content: center;
+    flex-wrap: wrap;
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -28,7 +29,12 @@ export const StyledNavLink = styled(NavLink)`
     height: 100%;
     text-transform: capitalize;
     position: relative;
-    line-height: 66px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
     &.active {
         font-weight: 600;
