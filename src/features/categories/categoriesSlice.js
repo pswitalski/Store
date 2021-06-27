@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCategoriesFromApi } from './getCategoriesFromApi';
 
 export const categoriesSlice = createSlice({
     name: 'categories',
@@ -7,13 +6,12 @@ export const categoriesSlice = createSlice({
         categories: [],
     },
     reducers: {
-        getCategories: (state) => {
-            // const list = getCategoriesFromApi();
-            // state.categories.push(...list);
+        addCategories: (state, action) => {
+            state.categories = [...action.payload];
         }
     }
 })
 
-export const { getCategories } = categoriesSlice.actions;
+export const { addCategories } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

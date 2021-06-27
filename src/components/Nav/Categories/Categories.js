@@ -25,9 +25,6 @@ const Categories = () => {
 
 return(
         <StyledUl>
-            <StyledLi><StyledNavLink exact to="/" >{categories}</StyledNavLink></StyledLi>
-            <StyledLi><StyledNavLink to="/men" >lorem</StyledNavLink></StyledLi>
-            <StyledLi><StyledNavLink to="/women" >lorem</StyledNavLink></StyledLi>
             {createCategories(categories)}
         </StyledUl>
 )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -8,7 +8,19 @@ import { theme } from 'assets/styles/theme';
 import Header from 'components/Header/Header';
 import Nav from 'components/Nav/Nav';
 
+import { getCategoriesFromApi } from 'helpers/getCategoriesFromApi';
+import { useDispatch } from 'react-redux';
+import { addCategories } from 'features/categories/categoriesSlice';
+
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect( async () => {
+    const categories = await getCategoriesFromApi();
+    dispatch(addCategories(categories));
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
