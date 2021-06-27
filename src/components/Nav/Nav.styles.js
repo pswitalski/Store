@@ -19,7 +19,9 @@ export const StyledNav = styled.nav`
     }
 
     &:hover::after {
-        background-color: ${props => props.theme.colors.dark};
+        @media (min-width: 601px) {
+            background-color: ${props => props.theme.colors.dark};
+        }
     }
 `;
 

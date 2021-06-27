@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { open } from 'features/navOpen/navOpenSlice';
 
 import ControlButton from './ControlButton/ControlButton';
 
@@ -10,14 +12,23 @@ import person from 'assets/icons/user 1.png';
 import basket from 'assets/icons/shopping-bag 2.png';
 import menu from 'assets/icons/view-list 2.png';
 
-const Controls = () => (
+const Controls = () => {
+
+    const dispatch = useDispatch()
+
+    const openMenuHandler = () => {
+        dispatch(open());
+    }
+
+return (
     <StyledUl>
         <li><ControlButton icon={search} /></li>
         <li><ControlButton icon={globe} /></li>
         <li><ControlButton icon={person} /></li>
         <li><ControlButton icon={basket} counter={23} /></li>
-        <li><ControlButton icon={menu} mobile /></li>
+        <li><ControlButton icon={menu} mobile onClick={openMenuHandler} /></li>
     </StyledUl>
 )
+}
 
 export default Controls;

@@ -11,6 +11,19 @@ export const StyledUl = styled.ul`
 
     @media (max-width: 600px) {
         display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        background-color: ${props => props.theme.colors.white};
+        z-index: 100;
+
+        &.menuActive {
+            display: flex;
+        }
     }
 `;
 
@@ -20,6 +33,10 @@ export const StyledLi = styled.li`
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
+
+    @media (max-width: 600px) {
+        height: 10%;
+    }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -36,6 +53,10 @@ export const StyledNavLink = styled(NavLink)`
     align-items: center;
     text-align: center;
 
+    @media (max-width: 600px) {
+        width: 100%;
+    }
+
     &.active {
         font-weight: 600;
     }
@@ -50,5 +71,24 @@ export const StyledNavLink = styled(NavLink)`
         left: 50%;
         bottom: -12px;
         transform: translateX(-50%) rotate(45deg);
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+`;
+
+export const StyledCloseButton = styled.button`
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: none;
+    display: none;
+
+    @media (max-width: 600px) {
+        display: block;
     }
 `;
