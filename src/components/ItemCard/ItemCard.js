@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledItemCard, StyledH3, StyledImg, StyledP, StyledHoverContainer, StyledDataContainer, StyledPriceGradeContainer } from './ItemCard.styles';
+import { StyledItemCard, StyledH3, StyledImg, StyledP, StyledHoverContainer, StyledDataContainer, StyledPriceGradeContainer, StyledLink } from './ItemCard.styles';
 
 import Grade from './Grade/Grade';
 
@@ -16,6 +16,7 @@ const ItemCard = ({item: {image, title, price, description, id, category}}) => {
     }, [grade])
 
     return(
+        <StyledLink to={`/product/${category}/${id}`}>
         <StyledItemCard className={`item-id=${id}`} >
             <StyledImg src={image} alt={title} />
             <StyledDataContainer>
@@ -26,6 +27,7 @@ const ItemCard = ({item: {image, title, price, description, id, category}}) => {
                 </StyledPriceGradeContainer>
             </StyledDataContainer>
         </StyledItemCard>
+        </StyledLink>
     )
 }
 
