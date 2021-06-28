@@ -7,4 +7,11 @@ export const StyledLanding = styled.section`
     grid-gap: 15px;
     height: 540px;
     margin-top: 20px;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        height: 800px;
+        grid-gap: 15px 0;
+    }
 `;

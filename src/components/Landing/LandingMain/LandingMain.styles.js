@@ -11,6 +11,10 @@ export const StyledLandingMain = styled.div`
     background-repeat: no-repeat;
     position: relative;
     z-index: -1;
+
+    @media (max-width: 800px) {
+        grid-row: 1/3;
+    }
 `;
 
 export const StyledDiv = styled.div`
@@ -28,6 +32,10 @@ export const StyledDiv = styled.div`
     flex-direction: column;
     width: 370px;
     height: 100px;
+
+    @media (max-width: 800px) {
+        width: 300px;
+    }
 `;
 
 export const StyledH3 = styled.h3`
@@ -38,6 +46,10 @@ export const StyledH3 = styled.h3`
     font-weight: 600;
     letter-spacing: 0.06em;
     text-align: center;
+
+    @media (max-width: 800px) {
+        font-size: 18px;
+    }
 `;
 
 export const StyledH4 = styled.h4`

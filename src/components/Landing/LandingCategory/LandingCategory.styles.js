@@ -12,17 +12,15 @@ export const StyledLandingCategory = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
-    /* position: relative; */
+    align-items: center;
 
-    /* z-index: 0; */
+    @media (max-width: 800px) {
+        grid-column: 1/-1;
+        grid-row: auto;
+    }
 `;
 
 export const StyledDiv = styled.div`
-    /* position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); */
     width: fit-content;
     height: 48px;
     background-color: #fff;
