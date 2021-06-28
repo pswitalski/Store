@@ -11,7 +11,7 @@ export const StyledLanding = styled.section`
     @media (max-width: 800px) {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, 1fr);
-        height: 800px;
+        height: 1000px;
         grid-gap: 15px 0;
     }
 `;

@@ -8,7 +8,7 @@ export const theme = {
         yellow: '#F0CC84',
         error: '#D61313',
         ok: '#0BB17F',
-        background: '#E5E5E5',
+        background: '#fff',
         font: '#C4C4C4'
     },
     fontFamily: '"Spartan", "Arial", sans-serif',

@@ -1,6 +1,8 @@
 export const getCategoriesFromApi = async () => {
     const url = 'https://fakestoreapi.com/products/categories';
 
+    const defaultCategories = ["electronics", "jewelery", "men's clothing", "women's clothing"];
+
     try {
         const response = await fetch(url, {method: 'GET'});
         if (response.status !== 200) {
@@ -10,7 +12,8 @@ export const getCategoriesFromApi = async () => {
         console.log(json);
         return(json);
     } catch(err) {
-        alert(err)
+        console.log(err);
+        return(defaultCategories);
     }
 
 
