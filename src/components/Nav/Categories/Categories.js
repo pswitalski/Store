@@ -32,7 +32,7 @@ const Categories = () => {
 
     useEffect(() => {
         window.onresize = closeMenuHandler;
-    }, [])
+    })
 
 
 return(
