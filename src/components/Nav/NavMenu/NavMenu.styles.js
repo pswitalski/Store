@@ -15,3 +15,24 @@ export const StyledNavMenu = styled.nav`
         }
     }
 `;
+
+export const StyledNavMenuContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+`;
+
+export const StyledH1 = styled.h1`
+    text-transform: uppercase;
+    color: ${props => props.theme.colors.dark};
+    padding: 10px;
+    text-align: center;
+`;
+
+export const StyledItemsContainer = styled.div`
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* background-color: red; */
+`;
