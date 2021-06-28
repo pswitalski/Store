@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
@@ -9,8 +9,12 @@ import { StyledHomeCategorySection, StyledH2, StyledItemsContainer, StyledLink }
 import { getItemsFromCategory } from 'helpers/getItemsFromCategory';
 
 const HomeCategorySeciton = ({category}) => {
-    console.log(category)
+
     const dispatch = useDispatch();
+
+    const fetched = useRef({
+        fetched: false
+    })
 
     const [error, setError] = useState('');
 
@@ -23,28 +27,35 @@ const HomeCategorySeciton = ({category}) => {
                 setError(items);
                 return;
             }
-            console.log(typeof(category))
+
             switch(category) {
                 case 'electronics':
                     dispatch(addElectronics(items));
+                    fetched.current = true
                     break;
                 case 'jewelery':
                     dispatch(addJewelery(items));
+                    fetched.current = true
                     break;
                 case "women's clothing":
                     dispatch(addWomensClothing(items));
+                    fetched.current = true
                     break;
                 case "men's clothing":
                     dispatch(addMensClothing(items));
+                    fetched.current = true
                     break;
                 default:
                     return;
             }
 
         }
-        fetchFromApi();
 
-    })
+        if (!fetched.current.fetched){
+            fetchFromApi();
+        }
+
+    }, [])
 
     return(
         <StyledHomeCategorySection>
