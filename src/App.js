@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
 
 import Header from 'components/Header/Header';
 import Nav from 'components/Nav/Nav';
+import Home from 'pages/Home';
 
 import { getCategoriesFromApi } from 'helpers/getCategoriesFromApi';
 import { useDispatch } from 'react-redux';
@@ -32,7 +33,13 @@ function App() {
           <GlobalStyle />
           <Header />
           <Nav />
-          <p>lorem</p>
+
+          <Switch>
+            <Route exact path="/" >
+              <Home />
+            </Route>
+          </Switch>
+
         </ThemeProvider>
       </BrowserRouter>
     </div>
