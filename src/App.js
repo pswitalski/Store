@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -17,12 +17,20 @@ function App() {
 
   const dispatch = useDispatch();
 
+  const fetched = useRef({
+    fetched: false
+  })
+
   useEffect(() => {
     const fetchData = async () => {
       const categories = await getCategoriesFromApi();
       dispatch(addCategories(categories));
+      fetched.current = true;
     }
-    fetchData();
+
+    if (!fetched.current.fetched) {
+      fetchData();
+    }
 
   }, [dispatch]);
 
