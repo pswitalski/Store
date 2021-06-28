@@ -16,7 +16,10 @@ export const StyledH2 = styled.h2`
 
 export const StyledItemsContainer = styled.div`
     background-color: red;
-    height: 200px;
+    /* height: 200px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 `;
 
 export const StyledLink = styled(Link)`
@@ -32,4 +35,8 @@ export const StyledLink = styled(Link)`
     justify-content: center;
     align-items: center;
     height: 48px;
+
+    &:hover {
+        background-color: ${props => props.theme.colors.grey};
+    }
 `;
