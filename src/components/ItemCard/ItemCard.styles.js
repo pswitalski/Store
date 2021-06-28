@@ -11,6 +11,10 @@ export const StyledItemCard = styled.div`
     align-items: center;
     color: ${props => props.theme.colors.dark};
     position: relative;
+
+    @media (max-width: 800px) {
+        margin: 10px 0;
+    }
 `;
 
 export const StyledH3 = styled.h3`

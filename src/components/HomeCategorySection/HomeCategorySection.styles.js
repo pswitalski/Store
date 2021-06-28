@@ -13,12 +13,18 @@ export const StyledH2 = styled.h2`
     font-size: 22px;
     letter-spacing: 0.06em;
     margin-bottom: 10px;
+    margin-left: 20px;
 `;
 
 export const StyledItemsContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const StyledLink = styled(Link)`

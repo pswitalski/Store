@@ -7,7 +7,6 @@ import Grade from './Grade/Grade';
 import Button from './Button/Button';
 
 const ItemCard = ({item: {image, title, price, description, id, category}}) => {
-    console.log(title)
 
     const [grade, setGrade] = useState(5);
 

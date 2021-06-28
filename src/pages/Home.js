@@ -7,6 +7,7 @@ import { Wrapper } from 'assets/styles/Wrapper';
 import Landing from 'components/Landing/Landing';
 import Advantage from 'components/Advantage/Advantage';
 import HomeCategorySeciton from 'components/HomeCategorySection/HomeCategorySection';
+import SaleSection from 'components/SaleSection/SaleSection';
 
 const Home = () => {
 
@@ -25,6 +26,7 @@ const Home = () => {
                 <Landing />
                 <Advantage />
                 {createHomeCategoriesSections()}
+                <SaleSection />
             </Wrapper>
         </div>
     )

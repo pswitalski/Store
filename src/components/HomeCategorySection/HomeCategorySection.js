@@ -60,7 +60,6 @@ const HomeCategorySeciton = ({category}) => {
     }, [])
 
     const items = useSelector(state => state.items);
-    console.log('dupa', items)
 
     const createItemsCards = () => {
         const itemsData = [];
