@@ -7,9 +7,10 @@ export const StyledItemCard = styled.div`
     flex-direction: column;
     height: 378px;
     width: 255px;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     color: ${props => props.theme.colors.dark};
+    position: relative;
 `;
 
 export const StyledH3 = styled.h3`
@@ -21,7 +22,11 @@ export const StyledH3 = styled.h3`
 export const StyledImg = styled.img`
     max-height: 70%;
     max-width: 100%;
-    margin: auto 0;
+    margin: auto 0 120px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 `;
 
 export const StyledP = styled.p`
@@ -31,9 +36,19 @@ export const StyledP = styled.p`
 
 export const StyledDataContainer = styled.div`
     width: 100%;
+    background-color: ${props => props.theme.colors.white};
+    z-index: 1;
+    margin-top: 10px;
 `;
 
-export const StyledHoverContainer = styled.div``;
+export const StyledHoverContainer = styled.div`
+    width: 100%;
+    display: none;
+
+    ${StyledItemCard}:hover & {
+        display: block;
+    }
+`;
 
 export const StyledPriceGradeContainer = styled.div`
     display: flex;

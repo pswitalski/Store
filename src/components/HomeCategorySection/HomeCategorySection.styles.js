@@ -12,6 +12,7 @@ export const StyledH2 = styled.h2`
     font-weight: 600;
     font-size: 22px;
     letter-spacing: 0.06em;
+    margin-bottom: 10px;
 `;
 
 export const StyledItemsContainer = styled.div`

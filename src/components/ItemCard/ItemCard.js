@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { StyledItemCard, StyledH3, StyledImg, StyledP, StyledHoverContainer, StyledDataContainer, StyledPriceGradeContainer, StyledLink } from './ItemCard.styles';
 
 import Grade from './Grade/Grade';
+import Button from './Button/Button';
 
 const ItemCard = ({item: {image, title, price, description, id, category}}) => {
     console.log(title)
@@ -26,6 +27,9 @@ const ItemCard = ({item: {image, title, price, description, id, category}}) => {
                     <Grade grade={grade} />
                 </StyledPriceGradeContainer>
             </StyledDataContainer>
+            <StyledHoverContainer>
+                <Button text="add to card" />
+            </StyledHoverContainer>
         </StyledItemCard>
         </StyledLink>
     )
