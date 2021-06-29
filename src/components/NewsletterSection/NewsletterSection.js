@@ -7,8 +7,8 @@ const NewsletterSection = () => {
         <StyledNewsletterSection>
             <StyledForm>
                 <StyledH3>special offer</StyledH3>
-                <StyledP>subscribe and <StyledSpan>get 10% off</StyledSpan></StyledP>
-                <StyledInput placeholder="enter your email" />
+                <StyledP>subscribe<br /> and <StyledSpan>get 10% off</StyledSpan></StyledP>
+                <StyledInput placeholder="Enter your email" type="email" />
                 <StyledButton type="submit" >subscribe</StyledButton>
             </StyledForm>
         </StyledNewsletterSection>
