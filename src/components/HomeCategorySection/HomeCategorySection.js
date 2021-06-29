@@ -57,7 +57,7 @@ const HomeCategorySeciton = ({category}) => {
             fetchFromApi();
         }
 
-    }, [])
+    }, [category, dispatch])
 
     const items = useSelector(state => state.items);
 

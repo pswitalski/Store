@@ -7,6 +7,8 @@ import { theme } from 'assets/styles/theme';
 
 import Header from 'components/Header/Header';
 import Nav from 'components/Nav/Nav';
+import Footer from 'components/Footer/Footer';
+
 import Home from 'pages/Home';
 
 import { getCategoriesFromApi } from 'helpers/getCategoriesFromApi';
@@ -48,6 +50,7 @@ function App() {
             </Route>
           </Switch>
 
+          <Footer />
         </ThemeProvider>
       </BrowserRouter>
     </div>
