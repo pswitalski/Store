@@ -21,19 +21,13 @@ export const newsletterSubscribe = (email) => {
                 const message = 'Something wend wrong. Try again.';
                 throw new Error(message);
             }
-
-
             const json = await response.json();
-
             return json;
 
         } catch(err) {
 
             return err;
         }
-
-
     }
-
     return postDataToApi();
 }

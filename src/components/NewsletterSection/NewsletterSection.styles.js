@@ -9,6 +9,8 @@ export const StyledNewsletterSection = styled.section`
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 `;
 
 export const StyledForm = styled.form`
@@ -106,4 +108,28 @@ export const StyledLoading = styled.img`
     animation: ${rotate} 1s linear infinite;
     position: absolute;
     bottom: 20px;
+`;
+
+export const StyledGirl = styled.img`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-120%, -48%);
+    height: 100%;
+
+    @media (max-width: 800px) {
+        display: none;
+    }
+`;
+
+export const StyledGuy = styled.img`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(70%, -50%);
+    height: 90%;
+
+    @media (max-width: 800px) {
+        display: none;
+    }
 `;

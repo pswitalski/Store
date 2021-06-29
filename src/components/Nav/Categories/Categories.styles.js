@@ -9,7 +9,7 @@ export const StyledUl = styled.ul`
     height: 100%;
     overflow: hidden;
 
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
         display: none;
         position: fixed;
         left: 0;
@@ -34,7 +34,7 @@ export const StyledLi = styled.li`
     justify-content: center;
     flex-wrap: wrap;
 
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
         height: 10%;
     }
 `;
@@ -53,7 +53,7 @@ export const StyledNavLink = styled(NavLink)`
     align-items: center;
     text-align: center;
 
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
         width: 100%;
     }
 
@@ -72,7 +72,7 @@ export const StyledNavLink = styled(NavLink)`
         bottom: -12px;
         transform: translateX(-50%) rotate(45deg);
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
             display: none;
         }
     }
@@ -88,7 +88,7 @@ export const StyledCloseButton = styled.button`
     border: none;
     display: none;
 
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
         display: block;
     }
 `;
