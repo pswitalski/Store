@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 export const StyledNewsletterSection = styled.section`
     height: 580px;
@@ -21,6 +21,7 @@ export const StyledForm = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 `;
 
 export const StyledH3 = styled.h3`
@@ -74,5 +75,35 @@ export const StyledButton = styled.button`
     font-size: 16px;
     line-height: 18px;
     letter-spacing: 0.06em;
+
+    &:disabled {
+        opacity: 0.8;
+    }
 `;
 
+export const StyledMessage = styled.p`
+    margin: 10px;
+    visibility: hidden;
+    text-align: center;
+
+    &.active {
+        visibility: visible;
+    }
+`;
+
+const rotate = keyframes`
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(-360deg)
+    }
+`;
+
+export const StyledLoading = styled.img`
+    margin-top: 5px;
+    height: 20px;
+    animation: ${rotate} 1s linear infinite;
+    position: absolute;
+    bottom: 20px;
+`;
