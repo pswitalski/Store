@@ -8,6 +8,7 @@ import Landing from 'components/Landing/Landing';
 import Advantage from 'components/Advantage/Advantage';
 import HomeCategorySeciton from 'components/HomeCategorySection/HomeCategorySection';
 import SaleSection from 'components/SaleSection/SaleSection';
+import NewsletterSection from 'components/NewsletterSection/NewsletterSection';
 
 const Home = () => {
 
@@ -27,6 +28,7 @@ const Home = () => {
                 <Advantage />
                 {createHomeCategoriesSections()}
                 <SaleSection />
+                <NewsletterSection />
             </Wrapper>
         </div>
     )
