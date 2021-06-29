@@ -77,9 +77,11 @@ export const StyledButton = styled.button`
     font-size: 16px;
     line-height: 18px;
     letter-spacing: 0.06em;
+    cursor: pointer;
 
     &:disabled {
         opacity: 0.8;
+        cursor: auto;
     }
 `;
 

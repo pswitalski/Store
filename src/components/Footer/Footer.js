@@ -5,13 +5,16 @@ import { StyledFooter } from './Footer.styles';
 import TopFooter from './TopFooter/TopFooter';
 import MiddleFooter from './MiddleFooter/MiddleFooter';
 import BottomFooter from './BottomFooter/BottomFooter';
+import { Wrapper } from 'assets/styles/Wrapper';
 
 const Footer = () => {
     return(
         <StyledFooter>
-            <TopFooter />
-            <MiddleFooter />
-            <BottomFooter />
+            <Wrapper>
+                <TopFooter />
+                <MiddleFooter />
+                <BottomFooter />
+            </Wrapper>
         </StyledFooter>
     )
 }
