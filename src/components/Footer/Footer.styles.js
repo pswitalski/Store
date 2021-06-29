@@ -5,4 +5,17 @@ export const StyledFooter = styled.footer`
     width: 100%;
     color: ${props => props.theme.colors.dark};
     margin-top: 36px;
+
+    @media (max-width: 600px) {
+        height: fit-content;
+    }
+`;
+
+export const StyledFlexContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
 `;

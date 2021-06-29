@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledFooter } from './Footer.styles';
+import { StyledFooter, StyledFlexContainer } from './Footer.styles';
 
 import TopFooter from './TopFooter/TopFooter';
 import MiddleFooter from './MiddleFooter/MiddleFooter';
@@ -11,9 +11,11 @@ const Footer = () => {
     return(
         <StyledFooter>
             <Wrapper>
-                <TopFooter />
-                <MiddleFooter />
-                <BottomFooter />
+                <StyledFlexContainer>
+                    <TopFooter />
+                    <MiddleFooter />
+                    <BottomFooter />
+                </StyledFlexContainer>
             </Wrapper>
         </StyledFooter>
     )
