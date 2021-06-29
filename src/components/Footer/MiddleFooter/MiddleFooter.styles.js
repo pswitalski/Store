@@ -51,5 +51,5 @@ export const StyledLink = styled(Link)`
 export const StyledImg = styled.img`
     height: 20px;
     width: auto;
-    margin: 5px;
+    margin: 5px 5px 5px 0;
 `;

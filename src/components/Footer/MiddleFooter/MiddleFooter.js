@@ -15,22 +15,22 @@ const MiddleFooter = () => {
                 <StyledUl>
                     <StyledLi>
                         <StyledLink to="/electronics">
-                            electronics
+                            Electronics
                         </StyledLink>
                     </StyledLi>
                     <StyledLi>
                         <StyledLink to="/jewelery">
-                            jewelery
+                            Jewelery
                         </StyledLink>
                     </StyledLi>
                     <StyledLi>
                         <StyledLink to="/men's clothing">
-                            men's clothing
+                            Men's clothing
                         </StyledLink>
                     </StyledLi>
                     <StyledLi>
                         <StyledLink to="/women's clothing">
-                            women's clothing
+                            Women's clothing
                         </StyledLink>
                     </StyledLi>
                 </StyledUl>
