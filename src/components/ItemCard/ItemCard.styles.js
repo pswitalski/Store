@@ -11,6 +11,7 @@ export const StyledItemCard = styled.div`
     align-items: center;
     color: ${props => props.theme.colors.dark};
     position: relative;
+    margin: 10px;
 
     @media (max-width: 800px) {
         margin: 10px 0;
@@ -48,6 +49,10 @@ export const StyledDataContainer = styled.div`
 export const StyledHoverContainer = styled.div`
     width: 100%;
     display: none;
+
+    @media (max-width: 800px) {
+        display: block;
+    }
 
     ${StyledItemCard}:hover & {
         display: block;
