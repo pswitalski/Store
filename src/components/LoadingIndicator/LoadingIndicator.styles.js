@@ -47,6 +47,7 @@ export const StyledLoadingIndicator = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px 0;
 `;
 
 export const StyledContainer = styled.div`
