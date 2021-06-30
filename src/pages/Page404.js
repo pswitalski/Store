@@ -13,9 +13,6 @@ const Styled404 = styled.h2`
     text-align: center;
 `;
 
-const StyledDiv = styled.div`
-`;
-
 const Page404 = () => {
     return(
         <div className="page404">

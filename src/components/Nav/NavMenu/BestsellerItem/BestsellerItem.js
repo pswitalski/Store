@@ -16,7 +16,6 @@ const BestsellerItem = ({id}) => {
 
     useEffect(() => {
         fetchData();
-        console.log('useEffect')
     }, [])
 
     console.log(itemData);
