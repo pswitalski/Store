@@ -11,6 +11,7 @@ import Footer from 'components/Footer/Footer';
 
 import Home from 'pages/Home';
 import Category from 'pages/Category';
+import ProductPage from 'pages/ProductPage';
 import Page404 from 'pages/Page404';
 
 import { getCategoriesFromApi } from 'helpers/getCategoriesFromApi';
@@ -53,6 +54,10 @@ function App() {
 
             <Route path="/category/:category" >
               <Category />
+            </Route>
+
+            <Route path="/product/:id" >
+              <ProductPage />
             </Route>
 
             <Route>
