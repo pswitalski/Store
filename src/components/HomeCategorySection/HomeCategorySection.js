@@ -97,7 +97,7 @@ const HomeCategorySeciton = ({category}) => {
                 {error !== '' ? <p>{error}</p>: null}
                 {createItemsCards()}
             </StyledItemsContainer>
-            <StyledLink to={`/${category}`} >see all</StyledLink>
+            <StyledLink to={`/category/${category}`} >see all</StyledLink>
         </StyledHomeCategorySection>
     )
 }

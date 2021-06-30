@@ -6,7 +6,7 @@ import { StyledLandingCategory, StyledDiv, StyledH3, StyledLink } from './Landin
 const LandingCategory = ({row, column, name, image}) => {
     return(
         <StyledLandingCategory row={row} column={column} image={image} >
-            <StyledLink to={`/${name}`}>
+            <StyledLink to={`/category/${name}`}>
                 <StyledDiv>
                     <StyledH3>{name}</StyledH3>
                 </StyledDiv>

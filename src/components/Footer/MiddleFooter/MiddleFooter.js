@@ -14,22 +14,22 @@ const MiddleFooter = () => {
                 <StyledH3>categories</StyledH3>
                 <StyledUl>
                     <StyledLi>
-                        <StyledLink to="/electronics">
+                        <StyledLink to="/category/electronics">
                             Electronics
                         </StyledLink>
                     </StyledLi>
                     <StyledLi>
-                        <StyledLink to="/jewelery">
+                        <StyledLink to="/category/jewelery">
                             Jewelery
                         </StyledLink>
                     </StyledLi>
                     <StyledLi>
-                        <StyledLink to="/men's clothing">
+                        <StyledLink to="/category/men's clothing">
                             Men's clothing
                         </StyledLink>
                     </StyledLi>
                     <StyledLi>
-                        <StyledLink to="/women's clothing">
+                        <StyledLink to="/category/women's clothing">
                             Women's clothing
                         </StyledLink>
                     </StyledLi>
