@@ -5,17 +5,16 @@ import { StyledProductName } from './ProductName.styles';
 
 import PathBar from 'components/CategoryName/PathBar/PathBar';
 import NameBar from 'components/CategoryName/NameBar/NameBar';
+import ProductInfo from './ProductInfo/ProductInfo';
 
-const ProductName = ({product: {title, category}}) => {
+const ProductName = ({product: {title, category, id}}) => {
 
 
     return(
         <StyledProductName>
-
-            {category}
             <PathBar category={title} productCategory={category} />
             <NameBar category={title}  />
-            {/* third bar with counter and grade */}
+            <ProductInfo id={id} />
         </StyledProductName>
     )
 }
