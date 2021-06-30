@@ -31,7 +31,11 @@ const Categories = () => {
     }
 
     useEffect(() => {
-        window.onresize = closeMenuHandler;
+        window.onresize = () => {
+            if (navOpen) {
+                closeMenuHandler();
+            };
+        }
     })
 
 
