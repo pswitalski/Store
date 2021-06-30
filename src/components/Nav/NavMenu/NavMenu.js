@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { StyledNavMenu, StyledH1, StyledItemsContainer, StyledNavMenuContainer } from './NavMenu.styles';
+import { StyledNavMenu, StyledH1, StyledItemsContainer, StyledNavMenuContainer, StyledLink } from './NavMenu.styles';
 import { Wrapper } from 'assets/styles/Wrapper';
 
-import BestsellerItem from 'components/Nav/NavMenu/Item/BestsellerItem';
+import BestsellerItem from 'components/Nav/NavMenu/BestsellerItem/BestsellerItem';
 
 const NavMenu = () => (
     <StyledNavMenu>
@@ -11,9 +11,15 @@ const NavMenu = () => (
             <StyledNavMenuContainer>
                 <StyledH1>bestsellers</StyledH1>
                 <StyledItemsContainer>
-                    <BestsellerItem img="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" name="product" price={56} />
-                    <BestsellerItem img="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" name="product" price={56} />
-                    <BestsellerItem img="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" name="product" price={56} />
+                    <StyledLink to={`/product/${3}`} >
+                        <BestsellerItem id={3} />
+                    </StyledLink>
+                    <StyledLink to={`/product/${19}`} >
+                        <BestsellerItem id={19} />
+                    </StyledLink>
+                    <StyledLink to={`/product/${17}`} >
+                        <BestsellerItem id={17} />
+                    </StyledLink>
                 </StyledItemsContainer>
             </StyledNavMenuContainer>
 

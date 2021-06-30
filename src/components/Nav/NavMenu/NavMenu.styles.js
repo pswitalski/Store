@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Link } from "react-router-dom";
+
 import { StyledNav } from "../Nav.styles";
 
 export const StyledNavMenu = styled.nav`
@@ -35,4 +37,8 @@ export const StyledItemsContainer = styled.div`
     display: flex;
     justify-content: center;
     /* background-color: red; */
+`;
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
 `;

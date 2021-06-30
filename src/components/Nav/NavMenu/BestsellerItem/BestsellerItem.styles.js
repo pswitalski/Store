@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledItem = styled.div`
     width: 238px;
-    height: 87%;
+    height: 80%;
     margin: 0 10px;
     padding: 0 5px;
     display: flex;
@@ -16,7 +16,7 @@ export const StyledImg = styled.img`
 `;
 
 export const StyledImgContainer = styled.div`
-    height: 85%;
+    height: 80%;
     align-self: center;
     flex-grow: 0;
 `;

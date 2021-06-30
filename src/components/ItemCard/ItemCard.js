@@ -16,7 +16,7 @@ const ItemCard = ({item: {image, title, price, description, id, category}}) => {
     }, [grade])
 
     return(
-        <StyledLink to={`/product/${category}/${id}`}>
+        <StyledLink to={`/product/${id}`}>
         <StyledItemCard className={`item-id=${id}`} >
             <StyledImg src={image} alt={title} />
             <StyledDataContainer>
