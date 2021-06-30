@@ -12,6 +12,10 @@ export const StyledPathBar = styled.div`
     display: flex;
     align-items: center;
     padding-left: 85px;
+
+    @media (max-width: 800px) {
+        padding-left: 20px;
+    }
 `;
 
 export const StyledLink = styled(Link)`

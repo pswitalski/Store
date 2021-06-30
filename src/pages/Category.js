@@ -7,6 +7,7 @@ import { Wrapper } from 'assets/styles/Wrapper';
 
 import LoadingIndicator from 'components/LoadingIndicator/LoadingIndicator';
 import CategoryName from 'components/CategoryName/CategoryName';
+import Products from 'components/Products/Products';
 
 const Category = () => {
 
@@ -31,6 +32,7 @@ const Category = () => {
             <Wrapper>
                 {isLoading ? <LoadingIndicator /> : null}
                 {!isLoading ?<CategoryName category={category} /> : null}
+                {!isLoading ? <Products category={category} /> : null}
             </Wrapper>
         </div>
     )
