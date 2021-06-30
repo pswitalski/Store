@@ -10,6 +10,8 @@ import Nav from 'components/Nav/Nav';
 import Footer from 'components/Footer/Footer';
 
 import Home from 'pages/Home';
+import Category from 'pages/Category';
+import Page404 from 'pages/Page404';
 
 import { getCategoriesFromApi } from 'helpers/getCategoriesFromApi';
 import { useDispatch } from 'react-redux';
@@ -48,6 +50,15 @@ function App() {
             <Route exact path="/" >
               <Home />
             </Route>
+
+            <Route path="/category/:category" >
+              <Category />
+            </Route>
+
+            <Route>
+              <Page404 />
+            </Route>
+
           </Switch>
 
           <Footer />
