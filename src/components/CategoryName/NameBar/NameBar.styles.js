@@ -10,4 +10,5 @@ export const StyledNameBar = styled.h2`
     letter-spacing: 0.06em;
     line-height: 36px;
     font-size: 26px;
+    padding: 0 20px;
 `;

@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router';
 
 import LoadingIndicator from 'components/LoadingIndicator/LoadingIndicator';
+import ProductName from 'components/ProductName/ProductName';
 
 import { getSingleItemFromApi } from 'helpers/getSingleItemFromApi';
 
@@ -28,6 +29,7 @@ const ProductPage = () => {
         <div>
             product page
             {isLoading ? <LoadingIndicator/> : null}
+            <ProductName product={currentProduct} />
         </div>
     )
 }
