@@ -13,8 +13,8 @@ const Category = () => {
 
     const { category } = useParams();
 
-    const [isLoading, setIsLoading] = useState(true);
-    const [categoryData, setCategoryData] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+    const [categoryData, setCategoryData] = useState([]);
 
     const fetchData = async () => {
         setIsLoading(true);
@@ -32,7 +32,7 @@ const Category = () => {
             <Wrapper>
                 {isLoading ? <LoadingIndicator /> : null}
                 {!isLoading ?<CategoryName category={category} /> : null}
-                {!isLoading ? <Products category={category} /> : null}
+                {!isLoading ? <Products categoryData={categoryData} /> : null}
             </Wrapper>
         </div>
     )
