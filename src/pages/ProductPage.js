@@ -2,8 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 import { useParams } from 'react-router';
 
+import { Wrapper } from 'assets/styles/Wrapper';
 import LoadingIndicator from 'components/LoadingIndicator/LoadingIndicator';
 import ProductName from 'components/ProductName/ProductName';
+import ProductPageBody from 'components/ProductPageBody/ProductPageBody';
 
 import { getSingleItemFromApi } from 'helpers/getSingleItemFromApi';
 
@@ -26,10 +28,12 @@ const ProductPage = () => {
     }, [])
 
     return(
-        <div>
-            product page
-            {isLoading ? <LoadingIndicator/> : null}
-            <ProductName product={currentProduct} />
+        <div className="product-page" >
+            <Wrapper>
+                {isLoading ? <LoadingIndicator/> : null}
+                {!isLoading ? <ProductName product={currentProduct} /> : null}
+                {!isLoading ? <ProductPageBody product={currentProduct} /> : null}
+            </Wrapper>
         </div>
     )
 }

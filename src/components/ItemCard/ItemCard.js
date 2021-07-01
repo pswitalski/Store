@@ -6,7 +6,7 @@ import { StyledItemCard, StyledH3, StyledImg, StyledP, StyledHoverContainer, Sty
 import Grade from './Grade/Grade';
 import Button from './Button/Button';
 
-const ItemCard = ({item: {image, title, price, description, id, category}}) => {
+const ItemCard = ({item: {image, title, price = 0, description, id, category}}) => {
 
     const [grade, setGrade] = useState(5);
 
@@ -22,7 +22,7 @@ const ItemCard = ({item: {image, title, price, description, id, category}}) => {
             <StyledDataContainer>
                 <StyledH3>{title}</StyledH3>
                 <StyledPriceGradeContainer>
-                    <StyledP>${price}</StyledP>
+                    <StyledP>${price.toFixed(2)}</StyledP>
                     <Grade grade={grade} />
                 </StyledPriceGradeContainer>
             </StyledDataContainer>
