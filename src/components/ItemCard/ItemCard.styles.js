@@ -12,6 +12,7 @@ export const StyledItemCard = styled.div`
     color: ${props => props.theme.colors.dark};
     position: relative;
     margin: 10px;
+    grid-row: 1/-1;
 
     @media (max-width: 800px) {
         margin: 10px 0;

@@ -6,6 +6,7 @@ import { Wrapper } from 'assets/styles/Wrapper';
 import LoadingIndicator from 'components/LoadingIndicator/LoadingIndicator';
 import ProductName from 'components/ProductName/ProductName';
 import ProductPageBody from 'components/ProductPageBody/ProductPageBody';
+import RelatedProducts from 'components/RelatedProducts/RelatedProducts';
 
 import { getSingleItemFromApi } from 'helpers/getSingleItemFromApi';
 
@@ -33,6 +34,7 @@ const ProductPage = () => {
                 {isLoading ? <LoadingIndicator/> : null}
                 {!isLoading ? <ProductName product={currentProduct} /> : null}
                 {!isLoading ? <ProductPageBody product={currentProduct} /> : null}
+                {!isLoading ? <RelatedProducts category={currentProduct.category} /> : null}
             </Wrapper>
         </div>
     )

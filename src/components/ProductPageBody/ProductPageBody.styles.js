@@ -20,6 +20,10 @@ export const StyledLeftContainer = styled.div`
 
 export const StyledRightContainer = styled.div`
     flex-basis: 50%;
+
+    @media (max-width: 800px) {
+        padding: 0 10px;
+    }
 `;
 
 export const StyledImg = styled.img`
