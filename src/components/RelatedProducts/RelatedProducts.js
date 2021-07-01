@@ -12,6 +12,7 @@ const RelatedProducts = ({category}) => {
 
     const [related, setRelated] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [touchStart, setTouchStart] = useState(0);
 
     const fetchRelatedItems = async () => {
         setIsLoading(true);
@@ -37,7 +38,6 @@ const RelatedProducts = ({category}) => {
         const width = target.current.offsetWidth;
         const currentScrollPosition = target.current.scrollLeft;
         let divisor;
-        console.log(typeof(width))
 
         if (width > 800) {
             divisor = 3;
@@ -77,6 +77,23 @@ const RelatedProducts = ({category}) => {
 
     })
 
+    const handleTouchStart = (e) => {
+        setTouchStart(e.changedTouches[0].clientX);
+    }
+
+    const handleTouchEnd = (e) => {
+        const touchEnd = e.changedTouches[0].clientX;
+
+        if (touchEnd > touchStart && touchEnd - touchStart > 50) {
+            slideHandler(slider, 'left');
+        }
+
+        if (touchEnd < touchStart && touchEnd - touchStart < -50) {
+            slideHandler(slider, 'right');
+        }
+    }
+
+
     return(
         <StyledRelatedProducts>
             <StyledTopConainer>
@@ -87,7 +104,7 @@ const RelatedProducts = ({category}) => {
                 </StyledControlsContainer>
             </StyledTopConainer>
             {isLoading ? <LoadingIndicator /> : null}
-            <StyledItemsContainer ref={slider}  >
+            <StyledItemsContainer ref={slider} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}  >
                 {!isLoading ? createRelatedItems() : null}
             </StyledItemsContainer>
         </StyledRelatedProducts>
