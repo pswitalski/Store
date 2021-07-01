@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledPrice = styled.div`
-    background-color: green;
     display: flex;
     align-items: center;
     justify-content: flex-start;

@@ -11,8 +11,6 @@ export const StyledProductPageBody = styled.div`
 `;
 
 export const StyledLeftContainer = styled.div`
-    background-color: red;
-
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
@@ -21,8 +19,6 @@ export const StyledLeftContainer = styled.div`
 `;
 
 export const StyledRightContainer = styled.div`
-    background-color: blue;
-
     flex-basis: 50%;
 `;
 

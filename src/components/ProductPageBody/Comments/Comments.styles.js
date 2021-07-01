@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledComments = styled.div`
-    background-color: green;
     padding: 20px 0;
 `;
 
