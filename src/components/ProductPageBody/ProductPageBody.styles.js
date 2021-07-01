@@ -4,6 +4,10 @@ export const StyledProductPageBody = styled.div`
     display: flex;
     width: 100%;
     height: fit-content;
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
 `;
 
 export const StyledLeftContainer = styled.div`
@@ -25,4 +29,8 @@ export const StyledRightContainer = styled.div`
 export const StyledImg = styled.img`
     max-height: 560px;
     max-width: 450px;
+
+    @media (max-width: 800px) {
+        max-width: 100%;
+    }
 `;

@@ -6,14 +6,12 @@ import { StyledComment, StyledH4, StyledP, StyledContainer } from './Comment.sty
 import Grade from 'components/ItemCard/Grade/Grade';
 
 const Comment = ({item}) => {
-    console.log(item)
-
     const [grade, setGrade] = useState(5);
 
     useEffect(() => {
         const grade = Math.floor(Math.random() * 5) + 1;
         setGrade(grade);
-    }, [])
+    }, [item])
 
     return(
         <StyledComment>

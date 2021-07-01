@@ -11,4 +11,8 @@ export const StyledNameBar = styled.h2`
     line-height: 36px;
     font-size: 26px;
     padding: 0 20px;
+
+    @media (max-width: 800px) {
+        font-size: 14px;
+    }
 `;
