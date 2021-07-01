@@ -26,7 +26,7 @@ const ProductPage = () => {
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, [id])
 
     return(
         <div className="product-page" >
