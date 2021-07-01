@@ -35,19 +35,9 @@ const RelatedProducts = ({category}) => {
     const slider = useRef();
 
     const slideHandler = (target, direction) => {
-        const width = target.current.offsetWidth;
         const currentScrollPosition = target.current.scrollLeft;
-        let divisor;
 
-        if (width > 800) {
-            divisor = 3;
-        } else if (width > 600) {
-            divisor = 2;
-        } else {
-            divisor = 1;
-        }
-
-        const step = width / divisor;
+        const step = 255;
 
         switch(direction) {
             case 'right':

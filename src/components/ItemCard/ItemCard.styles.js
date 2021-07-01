@@ -11,8 +11,9 @@ export const StyledItemCard = styled.div`
     align-items: center;
     color: ${props => props.theme.colors.dark};
     position: relative;
-    margin: 10px;
+    padding: 10px;
     grid-row: 1/-1;
+    /* background-color: red; */
 
     @media (max-width: 800px) {
         margin: 10px 0;
@@ -27,7 +28,7 @@ export const StyledH3 = styled.h3`
 
 export const StyledImg = styled.img`
     max-height: 70%;
-    max-width: 100%;
+    max-width: 90%;
     margin: auto 0 120px;
     position: absolute;
     top: 0;

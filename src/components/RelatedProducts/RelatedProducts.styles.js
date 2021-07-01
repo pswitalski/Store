@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const StyledRelatedProducts = styled.div``;
+export const StyledRelatedProducts = styled.div`
+
+`;
 
 export const StyledH2 = styled.h2`
     font-weight: 600;
@@ -36,17 +38,19 @@ export const StyledButton = styled.button`
 export const StyledItemsContainer = styled.div`
     display: grid;
     grid-template-rows: 400px;
-    grid-template-columns: repeat(6, 33.333333333333333333%);
-    width: 100%;
+    grid-template-columns: repeat(7, 255px);
+    width: calc(255px * 3);
+    margin: 0 auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    justify-items: center;
+    justify-items: left;
+    align-items: center;
 
     @media (max-width: 800px) {
-        grid-template-columns: repeat(6, 50%);
+        width: calc(255px *2);
     }
 
     @media (max-width: 600px) {
-        grid-template-columns: repeat(6, 100%);
+        width: 255px;
     }
 `;
