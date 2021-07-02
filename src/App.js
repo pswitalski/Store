@@ -18,6 +18,8 @@ import Page404 from 'pages/Page404';
 import { getCategoriesFromApi } from 'helpers/getCategoriesFromApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCategories } from 'features/categories/categoriesSlice';
+import { GetUserFromApi } from 'helpers/getUserFromApi';
+import { addExampleUser } from 'features/exampleUser/exampleUserSlice';
 
 function App() {
 
@@ -42,6 +44,16 @@ function App() {
 
   const loginModalOpen = useSelector(state => state.loginModalOpen);
 
+  const fetchExampleUser = async () => {
+    const userID = await Math.floor(Math.random() * 10) + 1;
+    const user = await GetUserFromApi(userID);
+    dispatch(addExampleUser(user));
+  }
+
+  useEffect(() => {
+    fetchExampleUser()
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -50,7 +62,7 @@ function App() {
           <Header />
           <Nav />
 
-          <LoginModal active={loginModalOpen.loginModalOpen} />
+          {loginModalOpen.loginModalOpen ? <LoginModal /> : null}
 
           <Switch>
             <Route exact path="/" >

@@ -11,4 +11,5 @@ export const StyledModalButton = styled.button`
     line-height: 15px;
     letter-spacing: 0.06em;
     border: none;
+    cursor: pointer;
 `;

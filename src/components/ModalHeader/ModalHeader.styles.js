@@ -29,4 +29,5 @@ export const StyledButton = styled.button`
     filter: invert(1) opacity(0.6);
     height: 24px;
     width: 24px;
+    cursor: pointer;
 `;

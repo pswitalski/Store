@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import { StyledModalButton } from './ModalButton.styles';
 
-const ModalButton = ({text, isDark = false}) => {
+const ModalButton = ({text, isDark = false, onClick}) => {
     return(
-        <StyledModalButton isDark={isDark} >
+        <StyledModalButton isDark={isDark} onClick={onClick} >
             {text}
         </StyledModalButton>
     )
@@ -13,7 +13,8 @@ const ModalButton = ({text, isDark = false}) => {
 
 ModalButton.propTypes = {
     text: PropTypes.string,
-    isDark: PropTypes.bool
+    isDark: PropTypes.bool,
+    onClick: PropTypes.func
 }
 
 export default ModalButton;

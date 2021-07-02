@@ -3,11 +3,15 @@ import styled from "styled-components";
 export const StyledModal = styled.div`
     width: 388px;
     height: 720px;
-    background-color: red;
+    background-color: white;
     position: absolute;
     top: calc(66px + 24px + 10px);
     right: 50px;
     z-index: 200;
-
-    display: ${props => props.active ? 'flex' : 'none'};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px solid #E6E6E6;
+    padding-bottom: 24px;
 `;
