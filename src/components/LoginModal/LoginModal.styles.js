@@ -6,7 +6,7 @@ export const StyledForm = styled.form`
     align-items: center;
     justify-items: flex-start;
     border-bottom: 2px solid ${props => props.theme.colors.grWhite};
-    padding-bottom: 24px;
+    padding-bottom: 10px;
     margin-bottom: auto;
 `;
 
@@ -24,8 +24,9 @@ export const StyledInput = styled.input`
     width: 100%;
     height: 48px;
     margin-top: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     border: none;
+    box-shadow: ${props => props.error ? '0 0 3px 3px #D61313' : 'none'};
     outline: none;
     background-color: ${props => props.theme.colors.grWhite};
     padding: 0 16px;
@@ -45,4 +46,9 @@ export const StyledP = styled.p`
     color: ${props => props.theme.colors.dark};
     font-size: 14px;
     line-height: 22px;
+    text-align: center;
+`;
+
+export const StyledError = styled.span`
+    color: ${props => props.theme.colors.error};
 `;
