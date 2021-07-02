@@ -5,6 +5,8 @@ export const StyledFooter = styled.footer`
     width: 100%;
     color: ${props => props.theme.colors.dark};
     margin-top: 36px;
+    background-color: green;
+    margin: auto 0 0;
 
     @media (max-width: 600px) {
         height: fit-content;

@@ -51,5 +51,20 @@ export const GlobalStyle = createGlobalStyle`
         font-size: ${props => props.theme.fontSize.body14_22};
         font-weight: ${props => props.theme.fontWeight.body14_22};
         line-height: ${props => props.theme.lineHeight.body14_22};
+
+        /* min-height: 100vh; */
+        /* color: blue; */
+    }
+
+    #root {
+        min-height: 100vh;
+    }
+
+    .App {
+        min-height: 100vh;
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 `;
