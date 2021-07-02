@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledNameBar = styled.h2`
     width: 100%;
-    height: 70px;
+    height: fit-content;
     text-align: center;
     text-transform: uppercase;
     color: ${props => props.theme.colors.dark};

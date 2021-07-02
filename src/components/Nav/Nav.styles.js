@@ -5,7 +5,10 @@ export const StyledNav = styled.nav`
     height: 66px;
     color: ${props => props.theme.colors.dark};
     background-color: ${props => props.theme.colors.white};
-    position: relative;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    z-index: 100;
 
     &::after {
         content: '';

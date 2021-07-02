@@ -8,11 +8,12 @@ export const StyledNavMenu = styled.nav`
     background-color: ${props => props.theme.colors.white};
     display: none;
     height: 336px;
+    z-index: 120;
 
     ${ StyledNav }:hover & {
         display: block;
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
             display: none;
         }
     }
@@ -33,10 +34,10 @@ export const StyledH1 = styled.h1`
 
 export const StyledItemsContainer = styled.div`
     width: auto;
+    max-width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-    /* background-color: red; */
 `;
 
 export const StyledLink = styled(Link)`

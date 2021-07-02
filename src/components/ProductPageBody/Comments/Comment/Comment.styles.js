@@ -11,6 +11,10 @@ export const StyledH4 = styled.h4`
     margin: 20px 0 10px;
     text-transform: capitalize;
     flex-basis: 80%;
+
+    @media (max-width: 800px) {
+        flex-basis: 70%;
+    }
 `;
 
 export const StyledP = styled.p`
