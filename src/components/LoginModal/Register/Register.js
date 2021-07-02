@@ -10,17 +10,16 @@ const Register = ({changeMode}) => {
             <StyledP>Create new account.</StyledP>
             <StyledForm>
                 <StyledLabel htmlFor="email" >email</StyledLabel>
-                <StyledInput id="email" type="email" placeholder="Enter your email" />
+                <StyledInput id="email" type="email" placeholder="Enter your email" required />
 
                 <StyledLabel htmlFor="password" >password</StyledLabel>
-                <StyledInput id="password" type="password" placeholder="Your password" />
+                <StyledInput id="password" type="password" placeholder="Your password" required />
 
                 <StyledLabel htmlFor="repeatPassword" >repeat password</StyledLabel>
-                <StyledInput id="repeatPassword" type="password" placeholder="Repeat password" />
+                <StyledInput id="repeatPassword" type="password" placeholder="Repeat password" required />
 
                 <ModalButton text="login" isDark />
             </StyledForm>
-
 
             <StyledP>Already have an account?</StyledP>
             <ModalButton text="log in" onClick={changeMode} />

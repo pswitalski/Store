@@ -12,10 +12,10 @@ const Login = ({changeMode}) => {
             <StyledP>If you have an account, please log in.</StyledP>
             <StyledForm>
                 <StyledLabel htmlFor="email" >email</StyledLabel>
-                <StyledInput id="email" type="email" placeholder="Enter your email" />
+                <StyledInput id="email" type="email" placeholder="Enter your email" required />
 
                 <StyledLabel htmlFor="password" >password</StyledLabel>
-                <StyledInput id="password" type="password" placeholder="Your password" />
+                <StyledInput id="password" type="password" placeholder="Your password" required />
 
                 <ModalButton text="login" isDark />
             </StyledForm>
