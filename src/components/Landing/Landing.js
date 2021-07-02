@@ -13,9 +13,9 @@ const Landing = () => {
     return(
         <StyledLanding>
             <LandingMain title="Your favourite shop" subtitle="StoRe" />
-            <LandingCategory name="women" image={womenImg} />
-            <LandingCategory name="men" image={menImg} />
-            <LandingCategory name="electronics" image={electronicsImg} column="-1/-3" />
+            <LandingCategory name="women" image={womenImg} link="women's clothing" />
+            <LandingCategory name="men" image={menImg} link="men's clothing" />
+            <LandingCategory name="electronics" image={electronicsImg} column="-1/-3" link="electronics" />
         </StyledLanding>
     )
 }
