@@ -18,8 +18,6 @@ const BestsellerItem = ({id}) => {
         fetchData();
     }, [])
 
-    console.log(itemData);
-
     return(
         <StyledItem className="item">
             <StyledImgContainer>

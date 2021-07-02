@@ -8,6 +8,7 @@ import { theme } from 'assets/styles/theme';
 import Header from 'components/Header/Header';
 import Nav from 'components/Nav/Nav';
 import Footer from 'components/Footer/Footer';
+import LoginModal from 'components/LoginModal/LoginModal';
 
 import Home from 'pages/Home';
 import Category from 'pages/Category';
@@ -15,7 +16,7 @@ import ProductPage from 'pages/ProductPage';
 import Page404 from 'pages/Page404';
 
 import { getCategoriesFromApi } from 'helpers/getCategoriesFromApi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addCategories } from 'features/categories/categoriesSlice';
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
 
   }, [dispatch]);
 
+  const loginModalOpen = useSelector(state => state.loginModalOpen);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -46,6 +49,8 @@ function App() {
           <GlobalStyle />
           <Header />
           <Nav />
+
+          <LoginModal active={loginModalOpen.loginModalOpen} />
 
           <Switch>
             <Route exact path="/" >

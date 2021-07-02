@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { open } from 'features/navOpen/navOpenSlice';
+import { toggleLoginModal } from 'features/loginModalOpen/loginModalSlice';
 
 import ControlButton from './ControlButton/ControlButton';
 
@@ -20,11 +21,15 @@ const Controls = () => {
         dispatch(open());
     }
 
+    const openLoginModalHandler = () => {
+        dispatch(toggleLoginModal());
+    }
+
 return (
     <StyledUl>
         <li><ControlButton icon={search} /></li>
         <li><ControlButton icon={globe} /></li>
-        <li><ControlButton icon={person} /></li>
+        <li><ControlButton icon={person} onClick={openLoginModalHandler} /></li>
         <li><ControlButton icon={basket} counter={23} /></li>
         <li><ControlButton icon={menu} mobile onClick={openMenuHandler} /></li>
     </StyledUl>
