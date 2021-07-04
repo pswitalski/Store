@@ -1,10 +1,12 @@
 import React, { useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledP, StyledForm, StyledInput, StyledLabel, StyledError } from 'components/LoginModal/LoginModal.styles';
+import { StyledP, StyledForm, StyledInput, StyledLabel, StyledError, StyledRegisterSucces } from 'components/LoginModal/LoginModal.styles';
 import ModalButton from 'components/ModalButton/ModalButton';
 
 import { useForm } from 'react-hook-form';
+
+import { sendNewUserToApi } from 'helpers/sendNewUserToApi';
 
 const Register = ({changeMode}) => {
     const emailCheck = new RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/gm);
@@ -17,9 +19,18 @@ const Register = ({changeMode}) => {
     const [confirmPasswordError, setConfirmPasswordError] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [apiError, setApiError] = useState('');
+    const [userRegistered, setUserRegistered] = useState(false);
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        const response = await sendNewUserToApi(data);
+
+        if (response === 'Something went wrong. Try again.') {
+            setApiError(response);
+        } else {
+            setApiError('');
+            setUserRegistered(true);
+        }
     }
 
     useEffect(() => {
@@ -53,6 +64,10 @@ const Register = ({changeMode}) => {
             setUsernameError(false);
         }
 
+        if (apiError) {
+            setErrorMessage(apiError)
+        }
+
     }, [formState])
 
     const passwordsMatch = () => {
@@ -69,8 +84,8 @@ const Register = ({changeMode}) => {
 
     return(
         <>
-            <StyledP>{errorMessage ? <StyledError>{errorMessage}</StyledError> : 'Create new account.'}</StyledP>
-            <StyledForm onSubmit={handleSubmit(onSubmit)} >
+            <StyledP className={userRegistered ? 'hide' : ''} >{errorMessage ? <StyledError>{errorMessage}</StyledError> : 'Create new account.'}</StyledP>
+            <StyledForm onSubmit={handleSubmit(onSubmit)} className={userRegistered ? 'hide' : ''} >
             <StyledLabel htmlFor="username" >username</StyledLabel>
                 <StyledInput id="username" type="text" placeholder="Enter username" {...register('username', {required: true, minLength: 6})} error={usernameError} />
 
@@ -87,7 +102,11 @@ const Register = ({changeMode}) => {
                 <ModalButton text="register" isDark />
             </StyledForm>
 
-            <StyledP>Already have an account?</StyledP>
+            <StyledRegisterSucces className={!userRegistered ? 'hide' : ''} >
+                Succes! You can now log in. Please note, that there was no real changes in database. You must use example data to log in.
+            </StyledRegisterSucces>
+
+            <StyledP className={userRegistered ? 'hide' : ''} >Already have an account?</StyledP>
             <ModalButton text="log in" onClick={changeMode} />
         </>
     )

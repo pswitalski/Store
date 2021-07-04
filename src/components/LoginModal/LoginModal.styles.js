@@ -52,3 +52,12 @@ export const StyledP = styled.p`
 export const StyledError = styled.span`
     color: ${props => props.theme.colors.error};
 `;
+
+export const StyledRegisterSucces = styled.p`
+    margin-top: 24px;
+    margin-bottom: 24px;
+    color: ${props => props.theme.colors.dark};
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+`;

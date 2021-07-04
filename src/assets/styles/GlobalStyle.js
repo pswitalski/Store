@@ -65,4 +65,8 @@ export const GlobalStyle = createGlobalStyle`
         position: relative;
         padding-top: calc(24px + 66px);
     }
+
+    .hide {
+        display: none;
+    }
 `;
