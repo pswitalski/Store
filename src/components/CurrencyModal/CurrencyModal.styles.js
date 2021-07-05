@@ -15,6 +15,10 @@ export const StyledFieldset = styled.fieldset`
 
 export const StyledInput = styled.input`
     margin-right: 10px;
+
+    &:checked + span {
+        font-weight: 700;
+    }
 `;
 
 export const StyledLabel = styled.label`

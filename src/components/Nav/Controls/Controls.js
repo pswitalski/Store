@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { open } from 'features/navOpen/navOpenSlice';
 import { toggleLoginModal } from 'features/loginModalOpen/loginModalSlice';
 import { toggleUserProfileModal } from 'features/currentUser/currentUserSlice';
+import { toggleCurrencyModal } from 'features/currency/currencySlice';
 
 import ControlButton from './ControlButton/ControlButton';
 
@@ -32,10 +33,14 @@ const Controls = () => {
         }
     }
 
+    const openCurrencyHandler = () => {
+        dispatch(toggleCurrencyModal());
+    }
+
 return (
     <StyledUl>
         <li><ControlButton icon={search} /></li>
-        <li><ControlButton icon={globe} /></li>
+        <li><ControlButton icon={globe} onClick={openCurrencyHandler} /></li>
         <li><ControlButton icon={person} onClick={openLoginModalHandler} /></li>
         <li><ControlButton icon={basket} counter={23} /></li>
         <li><ControlButton icon={menu} mobile onClick={openMenuHandler} /></li>

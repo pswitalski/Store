@@ -77,6 +77,7 @@ function App() {
   });
 
   const isUserLogIn = useSelector(state => state.currentUser);
+  const isCurrencyModalOpen = useSelector(state => state.currency.currencyModalOpen);
 
   return (
     <div className="App">
@@ -88,7 +89,7 @@ function App() {
 
           {loginModalOpen.loginModalOpen ? <LoginModal /> : null}
           {isUserLogIn.userProfileModalOpen ? <UserProfile /> : null}
-          <CurrencyModal />
+          {isCurrencyModalOpen ? <CurrencyModal /> : null}
 
           <Switch>
             <Route exact path="/" >
