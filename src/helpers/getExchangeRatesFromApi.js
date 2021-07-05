@@ -8,6 +8,21 @@ export const getExchangesFromApi = async (targetCurrency) => {
             throw new Error(message);
         };
         const json = await response.json();
+
+        switch(targetCurrency) {
+            case 'pln':
+                json.symbol = 'PLN'
+                break;
+            case 'eur':
+                json.symbol = '€';
+                break;
+            case 'gbp':
+                json.symbol = '£';
+                break;
+            default:
+                json.symbol = '$';
+        }
+
         return json;
     } catch(err) {
         return err.message;

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import { useSelector } from 'react-redux';
+
 import { StyledItemCard, StyledH3, StyledImg, StyledP, StyledHoverContainer, StyledDataContainer, StyledPriceGradeContainer, StyledLink } from './ItemCard.styles';
 
 import Grade from './Grade/Grade';
@@ -15,6 +17,12 @@ const ItemCard = ({item: {image, title, price = 0, description, id, category}}) 
         setGrade(grade);
     }, [grade])
 
+    const currency = useSelector(state => state.currency);
+    const { currentCurrency, exchangeRate } = currency;
+    console.log(currentCurrency, exchangeRate)
+
+
+
     return(
         <StyledLink to={`/product/${id}`}>
         <StyledItemCard className={`item-id=${id}`} >
@@ -22,7 +30,7 @@ const ItemCard = ({item: {image, title, price = 0, description, id, category}}) 
             <StyledDataContainer>
                 <StyledH3>{title}</StyledH3>
                 <StyledPriceGradeContainer>
-                    <StyledP>${price.toFixed(2)}</StyledP>
+                    <StyledP>{exchangeRate.symbol ? exchangeRate.symbol : '$'}  {price.toFixed(2)}</StyledP>
                     <Grade grade={grade} />
                 </StyledPriceGradeContainer>
             </StyledDataContainer>
