@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { useDispatch } from 'react-redux';
+import { toggleIsUserLogIn, toggleUserProfileModal } from 'features/currentUser/currentUserSlice';
+import { toggleLoginModal } from 'features/loginModalOpen/loginModalSlice';
+
 import { StyledP, StyledForm, StyledInput, StyledLabel, StyledError } from 'components/LoginModal/LoginModal.styles';
 
 import ModalButton from 'components/ModalButton/ModalButton';
@@ -19,6 +23,8 @@ const Login = ({changeMode}) => {
     const [errorMessage, setErrorMessage] = useState('');
     const [apiError, setApiError] = useState('');
 
+    const dispatch = useDispatch();
+
     const onSubmit = async (data) => {
 
        const response = await loginUser(data);
@@ -29,6 +35,9 @@ const Login = ({changeMode}) => {
         } else {
             setApiError('');
             window.localStorage.setItem('token', response.token);
+            dispatch(toggleIsUserLogIn(true));
+            dispatch(toggleLoginModal({type: 'CLOSE'}));
+            dispatch(toggleUserProfileModal({type: 'OPEN'}));
         }
     }
 

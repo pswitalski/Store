@@ -3,19 +3,28 @@ import { createSlice } from '@reduxjs/toolkit';
 export const currentUserSlice = createSlice({
     name: 'currentUser',
     initialState: {
-        userData: {},
+        userProfileModalOpen: false,
         isUserLogIn: false
     },
     reducers: {
-        addCurrentUser: (state, action) => {
-            state.userData = action.payload;
-        },
         toggleIsUserLogIn: (state, action) => {
-            state.isUserLogIn = !state.isUserLogIn;
+            state.isUserLogIn = action.payload;
+        },
+        toggleUserProfileModal: (state, action) => {
+            switch(action.type) {
+                case 'OPEN':
+                    state.userProfileModalOpen = true;
+                    break;
+                case 'CLOSE':
+                    state.userProfileModalOpen = false;
+                    break;
+                default:
+                    state.userProfileModalOpen = !state.userProfileModalOpen;
+            }
         }
     }
 })
 
-export const { addCurrentUser, toggleIsUserLogIn } = currentUserSlice.actions;
+export const { toggleUserProfileModal, toggleIsUserLogIn } = currentUserSlice.actions;
 
 export default currentUserSlice.reducer;

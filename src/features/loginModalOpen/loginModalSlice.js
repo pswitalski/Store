@@ -6,18 +6,22 @@ export const loginModalSlice = createSlice({
         loginModalOpen: false
     },
     reducers: {
-        openLoginModal: (state) => {
-            state.loginModalOpen = true
-        },
-        closeLoginModal: (state) => {
-            state.loginModalOpen = false
-        },
-        toggleLoginModal: (state) => {
-            state.loginModalOpen = !state.loginModalOpen
+        toggleLoginModal: (state, action) => {
+            switch (action.type) {
+                case 'OPEN':
+                    state.loginModalOpen = true;
+                    break;
+                case 'CLOSE':
+                    state.loginModalOpen = false;
+                    break;
+                default:
+                    state.loginModalOpen = !state.loginModalOpen;
+                    break;
+            }
         },
     }
 });
 
-export const { openLoginModal, closeLoginModal, toggleLoginModal } = loginModalSlice.actions;
+export const { toggleLoginModal } = loginModalSlice.actions;
 
 export default loginModalSlice.reducer;

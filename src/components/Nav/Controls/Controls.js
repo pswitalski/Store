@@ -1,7 +1,8 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { open } from 'features/navOpen/navOpenSlice';
 import { toggleLoginModal } from 'features/loginModalOpen/loginModalSlice';
+import { toggleUserProfileModal } from 'features/currentUser/currentUserSlice';
 
 import ControlButton from './ControlButton/ControlButton';
 
@@ -15,14 +16,20 @@ import menu from 'assets/icons/view-list 2.png';
 
 const Controls = () => {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const isUserLogIn = useSelector(state => state.currentUser.isUserLogIn);
+    console.log(isUserLogIn)
 
     const openMenuHandler = () => {
         dispatch(open());
     }
 
     const openLoginModalHandler = () => {
-        dispatch(toggleLoginModal());
+        if (!isUserLogIn){
+            dispatch(toggleLoginModal());
+        } else {
+            dispatch(toggleUserProfileModal())
+        }
     }
 
 return (

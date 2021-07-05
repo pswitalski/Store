@@ -9,6 +9,7 @@ import Header from 'components/Header/Header';
 import Nav from 'components/Nav/Nav';
 import Footer from 'components/Footer/Footer';
 import LoginModal from 'components/LoginModal/LoginModal';
+import UserProfile from 'components/UserProfile/UserProfile';
 
 import Home from 'pages/Home';
 import Category from 'pages/Category';
@@ -20,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addCategories } from 'features/categories/categoriesSlice';
 import { GetUserFromApi } from 'helpers/getUserFromApi';
 import { addExampleUser } from 'features/exampleUser/exampleUserSlice';
+import { toggleIsUserLogIn } from 'features/currentUser/currentUserSlice';
 
 function App() {
 
@@ -54,6 +56,27 @@ function App() {
     fetchExampleUser()
   }, []);
 
+  useEffect(() => {
+    const checkIsUserLogIn = () => {
+      const localStorageToken = window.localStorage.getItem('token');
+      if (localStorageToken !== null) {
+        dispatch(toggleIsUserLogIn(true));
+      } else {
+        dispatch(toggleIsUserLogIn(false))
+      }
+    };
+
+    checkIsUserLogIn();
+    window.addEventListener('storage', checkIsUserLogIn);
+
+    return () => {
+      window.removeEventListener('storage', checkIsUserLogIn);
+    }
+
+  });
+
+  const isUserLogIn = useSelector(state => state.currentUser);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -63,6 +86,7 @@ function App() {
           <Nav />
 
           {loginModalOpen.loginModalOpen ? <LoginModal /> : null}
+          {isUserLogIn.userProfileModalOpen ? <UserProfile /> : null}
 
           <Switch>
             <Route exact path="/" >
