@@ -19,10 +19,8 @@ const ItemCard = ({item: {image, title, price = 0, description, id, category}}) 
 
     const currency = useSelector(state => state.currency);
     const { currentCurrency, exchangeRate } = currency;
-    console.log(currentCurrency, exchangeRate)
 
     const [calculatedPrice, setCalculatedPrice] = useState(price);
-    console.log(calculatedPrice)
 
     useEffect(() => {
         switch(currentCurrency) {
