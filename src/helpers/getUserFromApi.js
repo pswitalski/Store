@@ -1,5 +1,5 @@
 export const GetUserFromApi = async (userID = 1) => {
-    const url = `https://fakestoreapi.com/users/${userID}`;
+    const url = `https://reqres.in/api/users/${userID}`;
 
     try{
         const response = await fetch(url);

@@ -8,16 +8,28 @@ import ExampleLoginData from './ExampleLoginData/ExampleLoginData';
 
 import { useForm } from 'react-hook-form';
 
-const Login = ({changeMode}) => {
+import { loginUser } from 'helpers/loginUser';
 
+const Login = ({changeMode}) => {
+    const emailCheck = new RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/gm);
     const { register, handleSubmit, formState } = useForm();
 
-    const [usernameError, setUsernameError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [apiError, setApiError] = useState('');
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+
+       const response = await loginUser(data);
+       console.log(response.token)
+
+       if (response === 'Email or password invalid.') {
+        setApiError(response);
+        } else {
+            setApiError('');
+            window.localStorage.setItem('token', response.token);
+        }
     }
 
     useEffect(() => {
@@ -30,11 +42,15 @@ const Login = ({changeMode}) => {
             setPasswordError(false);
         }
 
-        if ('username' in formState.errors) {
-            setUsernameError(true);
-            setErrorMessage('You must enter username.')
+        if ('email' in formState.errors) {
+            setEmailError(true);
+            setErrorMessage('You must enter valid email.')
         } else {
-            setUsernameError(false);
+            setEmailError(false);
+        }
+
+        if (apiError !== '') {
+            setErrorMessage(apiError);
         }
 
     }, [formState])
@@ -43,8 +59,8 @@ const Login = ({changeMode}) => {
         <>
             <StyledP>{errorMessage ? <StyledError>{errorMessage}</StyledError> : 'If you have an account, please log in.'}</StyledP>
             <StyledForm onSubmit={handleSubmit(onSubmit)} >
-                <StyledLabel htmlFor="username" >username</StyledLabel>
-                <StyledInput id="username" type="text" placeholder="Enter username" {...register('username', {required: true})} error={usernameError} />
+                <StyledLabel htmlFor="email" >email</StyledLabel>
+                <StyledInput id="email" type="email" placeholder="Enter email" {...register('email', {required: true, pattern: emailCheck})} error={emailError} />
                 <StyledLabel htmlFor="password" >password</StyledLabel>
                 <StyledInput id="password" type="password" placeholder="Your password" {...register('password', {required: true})} error={passwordError} />
 
