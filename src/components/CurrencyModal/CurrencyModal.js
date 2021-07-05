@@ -15,7 +15,6 @@ const CurrencyModal = () => {
     const dispatch = useDispatch();
 
     const currentCurrency = useSelector(state => state.currency.currentCurrency);
-    console.log(currentCurrency)
 
     const closeMenuHandler = () => {
         dispatch(toggleCurrencyModal({type: 'CLOSE'}));
