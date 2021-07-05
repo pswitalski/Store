@@ -6,6 +6,7 @@ import newsletterSubscribeReducer from 'features/newsletterSubscribe/newsletterS
 import loginModalOpenReducer from 'features/loginModalOpen/loginModalSlice';
 import exampleUserReducer from 'features/exampleUser/exampleUserSlice';
 import currentUserReducer from 'features/currentUser/currentUserSlice';
+import currencyReducer from 'features/currency/currencySlice';
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
     newsletterSubscribe: newsletterSubscribeReducer,
     loginModalOpen: loginModalOpenReducer,
     exampleUser: exampleUserReducer,
-    currentUser: currentUserReducer
+    currentUser: currentUserReducer,
+    currency: currencyReducer
   }
 });

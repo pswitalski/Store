@@ -10,6 +10,7 @@ import Nav from 'components/Nav/Nav';
 import Footer from 'components/Footer/Footer';
 import LoginModal from 'components/LoginModal/LoginModal';
 import UserProfile from 'components/UserProfile/UserProfile';
+import CurrencyModal from 'components/CurrencyModal/CurrencyModal';
 
 import Home from 'pages/Home';
 import Category from 'pages/Category';
@@ -87,6 +88,7 @@ function App() {
 
           {loginModalOpen.loginModalOpen ? <LoginModal /> : null}
           {isUserLogIn.userProfileModalOpen ? <UserProfile /> : null}
+          <CurrencyModal />
 
           <Switch>
             <Route exact path="/" >
