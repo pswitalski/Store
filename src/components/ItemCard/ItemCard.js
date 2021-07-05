@@ -21,7 +21,28 @@ const ItemCard = ({item: {image, title, price = 0, description, id, category}}) 
     const { currentCurrency, exchangeRate } = currency;
     console.log(currentCurrency, exchangeRate)
 
+    const [calculatedPrice, setCalculatedPrice] = useState(price);
+    console.log(calculatedPrice)
 
+    useEffect(() => {
+        switch(currentCurrency) {
+            case 'pln':
+                const plnPrice = price * exchangeRate.pln;
+                setCalculatedPrice(plnPrice);
+                break;
+            case 'gbp':
+                const gbpPrice = price * exchangeRate.gbp;
+                setCalculatedPrice(gbpPrice);
+                break;
+            case 'eur':
+                const eurPrice = price * exchangeRate.eur;
+                setCalculatedPrice(eurPrice);
+                break;
+            default:
+                setCalculatedPrice(price);
+                break;
+        }
+    }, [currentCurrency, exchangeRate, price])
 
     return(
         <StyledLink to={`/product/${id}`}>
@@ -30,7 +51,7 @@ const ItemCard = ({item: {image, title, price = 0, description, id, category}}) 
             <StyledDataContainer>
                 <StyledH3>{title}</StyledH3>
                 <StyledPriceGradeContainer>
-                    <StyledP>{exchangeRate.symbol ? exchangeRate.symbol : '$'}  {price.toFixed(2)}</StyledP>
+                    <StyledP>{exchangeRate.symbol ? exchangeRate.symbol : '$'}  {calculatedPrice.toFixed(2)}</StyledP>
                     <Grade grade={grade} />
                 </StyledPriceGradeContainer>
             </StyledDataContainer>
