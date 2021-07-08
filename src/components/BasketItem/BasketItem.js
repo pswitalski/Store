@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
+
+import { useSelector } from 'react-redux';
 
 import { StyledBasketItem, StyledDataContainer, StyledImageContainer, StyledImg, StyledCategory, StyledName, StyledControls } from './BasketItem.styles';
 
@@ -8,6 +10,35 @@ import BasketPrice from './BasketPrice/BasketPrice';
 import BasketDeleteButton from './BasketDeleteButton/BasketDeleteButton';
 
 const BasketItem = ({quantity, product: {id, title, price, description, category, image}}) => {
+
+    const currentCurrency = useSelector(state => state.currency.currentCurrency);
+    const exchangeRate = useSelector(state => state.currency.exchangeRate);
+    console.log(exchangeRate)
+
+    const [currencySymbol, setCurrencySymbol] = useState('$');
+    const [calculatedPrice, setCalculatedPrice] = useState(0);
+
+    useEffect(() => {
+        switch(currentCurrency) {
+            case 'eur':
+                setCurrencySymbol('€');
+                setCalculatedPrice(price * exchangeRate.eur);
+                break;
+            case 'pln':
+                setCurrencySymbol('PLN');
+                setCalculatedPrice(price * exchangeRate.pln);
+                break;
+            case 'gbp':
+                setCurrencySymbol('£');
+                setCalculatedPrice(price * exchangeRate.gbp);
+                break;
+            default:
+                setCurrencySymbol('$');
+                setCalculatedPrice(price);
+                break;
+        }
+    }, [currentCurrency])
+
     return(
         <StyledBasketItem>
             <StyledImageContainer>
@@ -18,7 +49,7 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
                 <StyledCategory>{category}</StyledCategory>
                 <StyledControls>
                     <BasketCounter value={quantity} />
-                    <BasketPrice price={20} currency="$" />
+                    <BasketPrice price={calculatedPrice} currency={currencySymbol} />
                     <BasketDeleteButton />
                 </StyledControls>
             </StyledDataContainer>
