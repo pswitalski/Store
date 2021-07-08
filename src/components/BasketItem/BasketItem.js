@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { manageItemsInBasket } from 'features/basket/basketSlice';
 
 import { StyledBasketItem, StyledDataContainer, StyledImageContainer, StyledImg, StyledCategory, StyledName, StyledControls } from './BasketItem.styles';
 
@@ -37,7 +38,18 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
                 setCalculatedPrice(price);
                 break;
         }
-    }, [currentCurrency])
+    }, [currentCurrency]);
+
+    const dispatch = useDispatch();
+
+    const handleDeleteItem = () => {
+        dispatch(manageItemsInBasket({
+            type: 'DELETE',
+            payload: {
+                id: id
+            }
+        }))
+    }
 
     return(
         <StyledBasketItem>
@@ -50,7 +62,7 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
                 <StyledControls>
                     <BasketCounter value={quantity} />
                     <BasketPrice price={calculatedPrice} currency={currencySymbol} />
-                    <BasketDeleteButton />
+                    <BasketDeleteButton onClick={handleDeleteItem} />
                 </StyledControls>
             </StyledDataContainer>
         </StyledBasketItem>

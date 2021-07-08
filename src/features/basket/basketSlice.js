@@ -44,6 +44,13 @@ export const basketSlice = createSlice({
                         state.itemsInBasket = [...newState, {quantity: currentQuantity + 1, product: action.payload.payload}]
                     }
                     break;
+                case 'DELETE':
+                    const targetId = action.payload.payload.id;
+                    const newState = current(state.itemsInBasket).filter(item =>{
+                        if (item.product.id !== targetId) return true;
+                    });
+                    state.itemsInBasket = newState;
+                    break;
                 default:
                     return;
             }
