@@ -51,7 +51,7 @@ const BestsellerItem = ({id}) => {
                 <StyledImg src={itemData.image} alt={itemData.title} />
             </StyledImgContainer>
             <StyledH2>{itemData.title}</StyledH2>
-            <StyledP><span>{exchangeRate.symbol ? exchangeRate.symbol : '$'}</span>{calculatedPrice.toFixed(2)}</StyledP>
+            <StyledP><span>{exchangeRate.symbol ? exchangeRate.symbol : '$'}</span>{calculatedPrice ? calculatedPrice.toFixed(2) : 0.00}</StyledP>
         </StyledItem>
     )
 }
