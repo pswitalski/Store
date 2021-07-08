@@ -5,6 +5,8 @@ export const basketSlice = createSlice({
     initialState: {
         shoppingCartOpen: false,
         itemsInBasket: [],
+        total: 0,
+        currencySymbol: '$'
     },
     reducers: {
         toggleShoppingCartModal: (state, action) => {
@@ -83,10 +85,46 @@ export const basketSlice = createSlice({
                 default:
                     return;
             }
+        },
+        sumBasketValue: (state) => {
+            const currentBasket = current(state.itemsInBasket);
+            const values = [];
+            currentBasket.forEach(item => {
+                const multiplyer = item.quantity;
+                const price = item.product.price;
+                const value = multiplyer * price;
+                values.push(value);
+            })
+
+            let sum = 0;
+
+            values.forEach(item => {
+                sum = sum + item;
+            })
+
+            state.total = sum;
+        },
+        changeCurrencySymbol: (state, action) => {
+            console.log(action.payload)
+
+            switch(action.payload) {
+                case 'pln':
+                    state.currencySymbol = 'PLN';
+                    break;
+                case 'gbp':
+                    state.currencySymbol = '£';
+                    break;
+                case 'eur':
+                    state.currencySymbol = '€';
+                    break;
+                default:
+                    state.currencySymbol = '$';
+                    break;
+            }
         }
     }
 })
 
-export const { toggleShoppingCartModal, manageItemsInBasket } = basketSlice.actions;
+export const { toggleShoppingCartModal, manageItemsInBasket, sumBasketValue, changeCurrencySymbol } = basketSlice.actions;
 
 export default basketSlice.reducer;

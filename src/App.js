@@ -24,6 +24,7 @@ import { addCategories } from 'features/categories/categoriesSlice';
 import { GetUserFromApi } from 'helpers/getUserFromApi';
 import { addExampleUser } from 'features/exampleUser/exampleUserSlice';
 import { toggleIsUserLogIn } from 'features/currentUser/currentUserSlice';
+import { sumBasketValue, changeCurrencySymbol } from 'features/basket/basketSlice';
 
 function App() {
 
@@ -80,6 +81,14 @@ function App() {
   const isUserLogIn = useSelector(state => state.currentUser);
   const isCurrencyModalOpen = useSelector(state => state.currency.currencyModalOpen);
   const isShoppingCartOpen = useSelector(state => state.basket.shoppingCartOpen);
+
+  const basket = useSelector(state => state.basket);
+  const currency = useSelector(state => state.currency.currentCurrency);
+
+  useEffect(() => {
+    dispatch(sumBasketValue());
+    dispatch(changeCurrencySymbol(currency));
+  }, [basket, currency, dispatch])
 
   return (
     <div className="App">

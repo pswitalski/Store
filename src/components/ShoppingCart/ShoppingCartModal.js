@@ -9,6 +9,7 @@ import { StyledItemsContainer } from './ShoppingCartModal.styles';
 import ModalHeader from 'components/ModalHeader/ModalHeader';
 import ModalButton from 'components/ModalButton/ModalButton';
 import BasketItem from 'components/BasketItem/BasketItem';
+import ShoppingCartTotal from './ShoppingCartTotal/ShoppingCartTotal';
 
 const ShoppingCartModal = () => {
 
@@ -31,6 +32,7 @@ const ShoppingCartModal = () => {
             <StyledItemsContainer>
                 {createBasketItems()}
             </StyledItemsContainer>
+            <ShoppingCartTotal />
             <ModalButton text="check out" isDark />
             <ModalButton text="view cart" />
         </StyledModal>
