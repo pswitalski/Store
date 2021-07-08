@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
 export const basketSlice = createSlice({
     name: 'basket',
@@ -26,7 +26,23 @@ export const basketSlice = createSlice({
             console.log(action.payload.type);
             switch(action.payload.type) {
                 case 'ADD':
-                    state.itemsInBasket = [...state.itemsInBasket, action.payload.payload];
+                    const id = action.payload.payload.id;
+                    const currentState = current(state.itemsInBasket);
+                    const index = currentState.findIndex((item) => {
+                        if (item.product.id === id) {
+                            return true;
+                        }
+                    })
+
+                    if (index === -1) {
+                        state.itemsInBasket = [...state.itemsInBasket, {quantity: 1, product: action.payload.payload}];
+                    } else {
+                        const currentQuantity = currentState[index].quantity;
+                        const newState = currentState.filter(item => {
+                           if (item.product.id !== id) return true;
+                        })
+                        state.itemsInBasket = [...newState, {quantity: currentQuantity + 1, product: action.payload.payload}]
+                    }
                     break;
                 default:
                     return;

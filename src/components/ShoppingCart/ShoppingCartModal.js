@@ -21,7 +21,7 @@ const ShoppingCartModal = () => {
     const itemsInBasket = useSelector(state => state.basket.itemsInBasket);
 
     const createBasketItems = () => {
-        const items = itemsInBasket.map(item => <BasketItem product={item} key={item.id} />)
+        const items = itemsInBasket.map(item => <BasketItem product={item.product} key={item.product.id} quantity={item.quantity} />)
         return items;
     }
 

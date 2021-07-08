@@ -7,7 +7,7 @@ import BasketCounter from './BasketCounter/BasketCounter';
 import BasketPrice from './BasketPrice/BasketPrice';
 import BasketDeleteButton from './BasketDeleteButton/BasketDeleteButton';
 
-const BasketItem = ({product: {id, title, price, description, category, image}}) => {
+const BasketItem = ({quantity, product: {id, title, price, description, category, image}}) => {
     return(
         <StyledBasketItem>
             <StyledImageContainer>
@@ -17,7 +17,7 @@ const BasketItem = ({product: {id, title, price, description, category, image}})
                 <StyledName>{title}</StyledName>
                 <StyledCategory>{category}</StyledCategory>
                 <StyledControls>
-                    <BasketCounter value={6} />
+                    <BasketCounter value={quantity} />
                     <BasketPrice price={20} currency="$" />
                     <BasketDeleteButton />
                 </StyledControls>
@@ -27,7 +27,8 @@ const BasketItem = ({product: {id, title, price, description, category, image}})
 };
 
 BasketItem.propTypes = {
-    product: PropTypes.object
+    product: PropTypes.object,
+    quantity: PropTypes.number
 }
 
 export default BasketItem;
