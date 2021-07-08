@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledItemsContainer = styled.div`
     margin: auto 0;
     width: 100%;
-    height: 100%;
+    height: 73%;
     display: flex;
     flex-direction: column;
     align-items: center;
