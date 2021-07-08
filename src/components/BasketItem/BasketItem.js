@@ -51,6 +51,24 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
         }))
     }
 
+    const hadleIncrementQuantity = () => {
+        dispatch(manageItemsInBasket({
+            type: 'INCREMENT',
+            payload: {
+                id: id
+            }
+        }))
+    }
+
+    const hadleDecrementQuantity = () => {
+        dispatch(manageItemsInBasket({
+            type: 'DECREMENT',
+            payload: {
+                id: id
+            }
+        }))
+    }
+
     return(
         <StyledBasketItem>
             <StyledImageContainer>
@@ -60,7 +78,7 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
                 <StyledName>{title}</StyledName>
                 <StyledCategory>{category}</StyledCategory>
                 <StyledControls>
-                    <BasketCounter value={quantity} />
+                    <BasketCounter value={quantity} increment={hadleIncrementQuantity} decrement={hadleDecrementQuantity} />
                     <BasketPrice price={calculatedPrice} currency={currencySymbol} />
                     <BasketDeleteButton onClick={handleDeleteItem} />
                 </StyledControls>

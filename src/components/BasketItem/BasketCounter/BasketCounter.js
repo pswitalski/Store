@@ -9,7 +9,7 @@ import minusImg from 'assets/icons/minus-sm 1.png';
 const BasketCounter = ({value, increment, decrement}) => {
     return (
         <StyledBasketCounter>
-            <StyledButton onClick={decrement} >
+            <StyledButton onClick={decrement} disabled={value < 2 ? true : false} >
                 <StyledImg src={minusImg}  alt="minus"/>
             </StyledButton>
             <StyledP>{value}</StyledP>

@@ -14,6 +14,11 @@ export const StyledButton = styled.button`
     background-color: transparent;
     height: 100%;
     width: 33%;
+    cursor: pointer;
+
+    &:disabled {
+        cursor: default;
+    }
 `;
 
 export const StyledP = styled.p`
