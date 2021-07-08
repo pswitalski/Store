@@ -11,6 +11,7 @@ import Footer from 'components/Footer/Footer';
 import LoginModal from 'components/LoginModal/LoginModal';
 import UserProfile from 'components/UserProfile/UserProfile';
 import CurrencyModal from 'components/CurrencyModal/CurrencyModal';
+import ShopingCartModal from 'components/ShoppingCart/ShoppingCartModal';
 
 import Home from 'pages/Home';
 import Category from 'pages/Category';
@@ -78,6 +79,7 @@ function App() {
 
   const isUserLogIn = useSelector(state => state.currentUser);
   const isCurrencyModalOpen = useSelector(state => state.currency.currencyModalOpen);
+  const isShoppingCartOpen = useSelector(state => state.basket.shoppingCartOpen);
 
   return (
     <div className="App">
@@ -90,6 +92,7 @@ function App() {
           {loginModalOpen.loginModalOpen ? <LoginModal /> : null}
           {isUserLogIn.userProfileModalOpen ? <UserProfile /> : null}
           {isCurrencyModalOpen ? <CurrencyModal /> : null}
+          {isShoppingCartOpen ? <ShopingCartModal /> : null}
 
           <Switch>
             <Route exact path="/" >
