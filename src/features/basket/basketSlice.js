@@ -4,9 +4,11 @@ export const basketSlice = createSlice({
     name: 'basket',
     initialState: {
         shoppingCartOpen: false,
+        itemsInBasket: [],
     },
     reducers: {
         toggleShoppingCartModal: (state, action) => {
+            console.log(action)
             switch(action.type) {
                 case 'OPEN':
                     state.shoppingCartOpen = true;
@@ -19,9 +21,20 @@ export const basketSlice = createSlice({
                     break;
             }
         },
+        manageItemsInBasket: (state, action) => {
+            console.log(action.payload.payload);
+            console.log(action.payload.type);
+            switch(action.payload.type) {
+                case 'ADD':
+                    state.itemsInBasket = [...state.itemsInBasket, action.payload.payload];
+                    break;
+                default:
+                    return;
+            }
+        }
     }
 })
 
-export const { toggleShoppingCartModal } = basketSlice.actions;
+export const { toggleShoppingCartModal, manageItemsInBasket } = basketSlice.actions;
 
 export default basketSlice.reducer;

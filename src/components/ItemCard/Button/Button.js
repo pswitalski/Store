@@ -3,16 +3,17 @@ import PropTypes from 'prop-types'
 
 import { StyledButton } from './Button.styles';
 
-const Button = ({text}) => {
+const Button = ({text, onClick}) => {
     return(
-        <StyledButton>
+        <StyledButton onClick={onClick} >
             {text}
         </StyledButton>
     )
 }
 
 Button.propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    onClick: PropTypes.func
 }
 
 export default Button;

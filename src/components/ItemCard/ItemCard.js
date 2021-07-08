@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { manageItemsInBasket, toggleShoppingCartModal } from 'features/basket/basketSlice';
 
 import { StyledItemCard, StyledH3, StyledImg, StyledP, StyledHoverContainer, StyledDataContainer, StyledPriceGradeContainer, StyledLink } from './ItemCard.styles';
 
 import Grade from './Grade/Grade';
 import Button from './Button/Button';
 
-const ItemCard = ({item: {image, title, price = 0, description, id, category}}) => {
+const ItemCard = ({item}) => {
+
+    const {image, title, price = 0, description, id, category} = item;
 
     const [grade, setGrade] = useState(5);
 
@@ -40,24 +43,31 @@ const ItemCard = ({item: {image, title, price = 0, description, id, category}}) 
                 setCalculatedPrice(price);
                 break;
         }
-    }, [currentCurrency, exchangeRate, price])
+    }, [currentCurrency, exchangeRate, price]);
+
+    const dispatch = useDispatch();
+
+    const handleAddItemToBasket = () => {
+        console.log('click')
+        dispatch(manageItemsInBasket({payload: item, type: 'ADD'}));
+    }
 
     return(
-        <StyledLink to={`/product/${id}`}>
         <StyledItemCard className={`item-id=${id}`} >
-            <StyledImg src={image} alt={title} />
-            <StyledDataContainer>
-                <StyledH3>{title}</StyledH3>
-                <StyledPriceGradeContainer>
-                    <StyledP>{exchangeRate.symbol ? exchangeRate.symbol : '$'}  {calculatedPrice.toFixed(2)}</StyledP>
-                    <Grade grade={grade} />
-                </StyledPriceGradeContainer>
-            </StyledDataContainer>
+            <StyledLink to={`/product/${id}`}>
+                <StyledImg src={image} alt={title} />
+                <StyledDataContainer>
+                    <StyledH3>{title}</StyledH3>
+                    <StyledPriceGradeContainer>
+                        <StyledP>{exchangeRate.symbol ? exchangeRate.symbol : '$'}  {calculatedPrice.toFixed(2)}</StyledP>
+                        <Grade grade={grade} />
+                    </StyledPriceGradeContainer>
+                </StyledDataContainer>
+            </StyledLink>
             <StyledHoverContainer>
-                <Button text="add to card" />
+                <Button text="add to card" onClick={handleAddItemToBasket} />
             </StyledHoverContainer>
         </StyledItemCard>
-        </StyledLink>
     )
 }
 

@@ -8,7 +8,7 @@ import { StyledPrice, StyledP } from './Price.styles';
 import Button from 'components/ItemCard/Button/Button';
 
 
-const Price = ({id, price = 0}) => {
+const Price = ({id, price = 0, handleAddItemToBasket}) => {
 
     const currency = useSelector(state => state.currency);
     const { currentCurrency, exchangeRate } = currency;
@@ -33,19 +33,20 @@ const Price = ({id, price = 0}) => {
                 setCalculatedPrice(price);
                 break;
         }
-    }, [currentCurrency, exchangeRate, price])
+    }, [currentCurrency, exchangeRate, price]);
 
     return(
         <StyledPrice>
             <StyledP>{exchangeRate.symbol ? exchangeRate.symbol : '$'} {calculatedPrice.toFixed(2)}</StyledP>
-            <Button text="add to card" />
+            <Button text="add to card" onClick={handleAddItemToBasket} />
         </StyledPrice>
     )
 }
 
 Price.propTypes = {
     id: PropTypes.number,
-    price: PropTypes.number
+    price: PropTypes.number,
+    handleAddItemToBasket: PropTypes.func
 }
 
 export default Price;

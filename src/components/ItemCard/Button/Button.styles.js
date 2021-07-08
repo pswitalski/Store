@@ -10,4 +10,5 @@ export const StyledButton = styled.button`
     font-size: 13px;
     text-transform: uppercase;
     border: none;
+    cursor: pointer;
 `;
