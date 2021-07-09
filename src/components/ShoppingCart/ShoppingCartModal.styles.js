@@ -2,18 +2,17 @@ import styled from "styled-components";
 
 export const StyledItemsContainer = styled.div`
     margin: auto 0;
-    width: 100%;
+    width: 90%;
     height: 73%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     overflow-y: auto;
-    padding: 0 5%;
-    /* padding-right: 2px; */
+    padding-right: 2px;
 
     &::-webkit-scrollbar {
-        width: 10px;
+        width: 3px;
     }
 
     &::-webkit-scrollbar-track {
@@ -21,7 +20,6 @@ export const StyledItemsContainer = styled.div`
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: ${props => props.theme.colors.dark};
+        background-color: #8D8B8B;
     }
-
 `;
