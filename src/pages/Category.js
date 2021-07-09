@@ -9,6 +9,8 @@ import LoadingIndicator from 'components/LoadingIndicator/LoadingIndicator';
 import CategoryName from 'components/CategoryName/CategoryName';
 import Products from 'components/Products/Products';
 
+import { useCloseModals } from 'hooks/useCloseModals';
+
 const Category = () => {
 
     const { category } = useParams();
@@ -27,8 +29,10 @@ const Category = () => {
         fetchData();
     }, [category])
 
+    const closeAllModals = useCloseModals();
+
     return(
-        <div className="category" >
+        <div className="category" onClick={closeAllModals} >
             <Wrapper>
                 {isLoading ? <LoadingIndicator /> : null}
                 {!isLoading ?<CategoryName category={category} /> : null}

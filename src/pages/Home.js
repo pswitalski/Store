@@ -10,6 +10,8 @@ import HomeCategorySeciton from 'components/HomeCategorySection/HomeCategorySect
 import SaleSection from 'components/SaleSection/SaleSection';
 import NewsletterSection from 'components/NewsletterSection/NewsletterSection';
 
+import { useCloseModals } from 'hooks/useCloseModals';
+
 const Home = () => {
 
     const categories = useSelector(state => state.categories.categories);
@@ -21,8 +23,10 @@ const Home = () => {
         return sections;
     }
 
+    const closeAllModals = useCloseModals();
+
     return (
-        <div className='home'>
+        <div className='home' onClick={closeAllModals} >
             <Wrapper>
                 <Landing />
                 <Advantage />

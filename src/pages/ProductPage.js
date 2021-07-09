@@ -10,6 +10,8 @@ import RelatedProducts from 'components/RelatedProducts/RelatedProducts';
 
 import { getSingleItemFromApi } from 'helpers/getSingleItemFromApi';
 
+import { useCloseModals } from 'hooks/useCloseModals';
+
 const ProductPage = () => {
 
     const { id } = useParams();
@@ -28,8 +30,10 @@ const ProductPage = () => {
         fetchData();
     }, [id])
 
+    const closeAllModals = useCloseModals();
+
     return(
-        <div className="product-page" >
+        <div className="product-page" onClick={closeAllModals} >
             <Wrapper>
                 {isLoading ? <LoadingIndicator/> : null}
                 {!isLoading ? <ProductName product={currentProduct} /> : null}

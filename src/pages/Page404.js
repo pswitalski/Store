@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { useCloseModals } from 'hooks/useCloseModals';
+
 const Styled404 = styled.h2`
     color: ${props => props.theme.colors.dark};
     font-size: ${props => props.theme.fontSize.title22_30};
@@ -14,8 +16,11 @@ const Styled404 = styled.h2`
 `;
 
 const Page404 = () => {
+
+    const closeAllModals = useCloseModals();
+
     return(
-        <div className="page404">
+        <div className="page404" onClick={closeAllModals} >
             <Styled404>
                 that page does not exist
             </Styled404>
