@@ -7,8 +7,8 @@ import ModalHeader from 'components/ModalHeader/ModalHeader';
 import ModalButton from 'components/ModalButton/ModalButton';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleUserProfileModal, toggleIsUserLogIn } from 'features/currentUser/currentUserSlice';
-import { toggleLoginModal } from 'features/loginModalOpen/loginModalSlice';
+import { toggleIsUserLogIn, closeUserProfileModal } from 'features/currentUser/currentUserSlice';
+import { openLoginModal } from 'features/loginModalOpen/loginModalSlice';
 
 const UserProfile = () => {
 
@@ -20,14 +20,14 @@ const UserProfile = () => {
     const dispatch = useDispatch();
 
     const closeMenuHandler = () => {
-        dispatch(toggleUserProfileModal({type: 'CLOSE'}));
+        dispatch(closeUserProfileModal());
     }
 
     const logOffHandler = () => {
         window.localStorage.clear();
         dispatch(toggleIsUserLogIn(false));
-        dispatch(toggleUserProfileModal({type: 'CLOSE'}));
-        dispatch(toggleLoginModal({type: 'OPEN'}));
+        dispatch(closeUserProfileModal());
+        dispatch(openLoginModal());
     }
     return(
         <StyledModal>

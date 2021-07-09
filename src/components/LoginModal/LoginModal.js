@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { toggleLoginModal } from 'features/loginModalOpen/loginModalSlice';
+import { closeLoginModal } from 'features/loginModalOpen/loginModalSlice';
 
 import { StyledModal } from 'assets/styles/Modal.styles';
 
@@ -16,7 +16,7 @@ const LoginModal = () => {
     const [isRegister, setIsRegister] = useState(false);
 
     const closeMenuHandler = () => {
-        dispatch(toggleLoginModal({type: 'CLOSE'}));
+        dispatch(closeLoginModal());
     }
 
     const handleModeChange = () => {

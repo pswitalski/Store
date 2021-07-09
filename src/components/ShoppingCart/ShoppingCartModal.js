@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleShoppingCartModal } from 'features/basket/basketSlice';
+import { closeShoppingCartModal } from 'features/basket/basketSlice';
 
 import { StyledModal } from 'assets/styles/Modal.styles';
 import { StyledItemsContainer } from './ShoppingCartModal.styles';
@@ -16,7 +16,7 @@ const ShoppingCartModal = () => {
     const dispatch = useDispatch();
 
     const closeModalHandler = () => {
-        dispatch(toggleShoppingCartModal({type: 'CLOSE'}));
+        dispatch(closeShoppingCartModal());
     }
 
     const itemsInBasket = useSelector(state => state.basket.itemsInBasket);

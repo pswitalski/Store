@@ -8,18 +8,14 @@ export const currencySlice = createSlice({
         exchangeRate: {}
     },
     reducers: {
-        toggleCurrencyModal: (state, action) => {
-            switch (action.type) {
-                case 'OPEN':
-                    state.currencyModalOpen = true;
-                    break;
-                case 'CLOSE':
-                    state.currencyModalOpen = false;
-                    break;
-                default:
-                    state.currencyModalOpen = !state.currencyModalOpen;
-                    break;
-            }
+        toggleCurrencyModal: (state) => {
+            state.currencyModalOpen = !state.currencyModalOpen;
+        },
+        openCurrencyModal: (state) => {
+            state.currencyModalOpen = true;
+        },
+        closeCurrencyModal: (state) => {
+            state.currencyModalOpen = false;
         },
         addExchangeRate: (state, action) => {
             state.exchangeRate = action.payload;
@@ -30,6 +26,6 @@ export const currencySlice = createSlice({
     }
 });
 
-export const { toggleCurrencyModal, addExchangeRate, switchCurrency } = currencySlice.actions;
+export const { toggleCurrencyModal, addExchangeRate, switchCurrency, openCurrencyModal, closeCurrencyModal } = currencySlice.actions;
 
 export default currencySlice.reducer;

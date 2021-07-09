@@ -10,18 +10,13 @@ export const basketSlice = createSlice({
     },
     reducers: {
         toggleShoppingCartModal: (state, action) => {
-            console.log(action)
-            switch(action.type) {
-                case 'OPEN':
-                    state.shoppingCartOpen = true;
-                    break;
-                case 'CLOSE':
-                    state.shoppingCartOpen = false;
-                    break;
-                default:
-                    state.shoppingCartOpen = !state.shoppingCartOpen;
-                    break;
-            }
+            state.shoppingCartOpen = !state.shoppingCartOpen;
+        },
+        openShoppingCardModal: (state) => {
+            state.shoppingCartOpen = true;
+        },
+        closeShoppingCartModal: (state) => {
+            state.shoppingCartOpen = false;
         },
         manageItemsInBasket: (state, action) => {
             console.log(action.payload.payload);
@@ -125,6 +120,6 @@ export const basketSlice = createSlice({
     }
 })
 
-export const { toggleShoppingCartModal, manageItemsInBasket, sumBasketValue, changeCurrencySymbol } = basketSlice.actions;
+export const { toggleShoppingCartModal, openShoppingCardModal, closeShoppingCartModal, manageItemsInBasket, sumBasketValue, changeCurrencySymbol } = basketSlice.actions;
 
 export default basketSlice.reducer;

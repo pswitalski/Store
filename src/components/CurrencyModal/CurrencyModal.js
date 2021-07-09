@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleCurrencyModal, switchCurrency, addExchangeRate } from 'features/currency/currencySlice';
+import { switchCurrency, addExchangeRate, closeCurrencyModal } from 'features/currency/currencySlice';
 
 import { StyledModal } from 'assets/styles/Modal.styles';
 import { StyledFieldset, StyledInput, StyledLabel, StyledForm, StyledH2 } from './CurrencyModal.styles';
@@ -17,7 +17,7 @@ const CurrencyModal = () => {
     const currentCurrency = useSelector(state => state.currency.currentCurrency);
 
     const closeMenuHandler = () => {
-        dispatch(toggleCurrencyModal({type: 'CLOSE'}));
+        dispatch(closeCurrencyModal());
     }
 
     const changeCurrencyHandler = async (e) => {

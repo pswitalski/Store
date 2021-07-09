@@ -10,21 +10,18 @@ export const currentUserSlice = createSlice({
         toggleIsUserLogIn: (state, action) => {
             state.isUserLogIn = action.payload;
         },
-        toggleUserProfileModal: (state, action) => {
-            switch(action.type) {
-                case 'OPEN':
-                    state.userProfileModalOpen = true;
-                    break;
-                case 'CLOSE':
-                    state.userProfileModalOpen = false;
-                    break;
-                default:
-                    state.userProfileModalOpen = !state.userProfileModalOpen;
-            }
+        toggleUserProfileModal: (state) => {
+            state.userProfileModalOpen = !state.userProfileModalOpen;
+        },
+        openUserProfileModal: (state) => {
+            state.userProfileModalOpen = true;
+        },
+        closeUserProfileModal: (state) => {
+            state.userProfileModalOpen = false;
         }
     }
 })
 
-export const { toggleUserProfileModal, toggleIsUserLogIn } = currentUserSlice.actions;
+export const { toggleUserProfileModal, toggleIsUserLogIn, openUserProfileModal, closeUserProfileModal } = currentUserSlice.actions;
 
 export default currentUserSlice.reducer;
