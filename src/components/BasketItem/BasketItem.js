@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { manageItemsInBasket } from 'features/basket/basketSlice';
 
-import { StyledBasketItem, StyledDataContainer, StyledImageContainer, StyledImg, StyledCategory, StyledName, StyledControls } from './BasketItem.styles';
+import { StyledBasketItem, StyledDataContainer, StyledImageContainer, StyledImg, StyledCategory, StyledName, StyledControls, StyledLink } from './BasketItem.styles';
 
 import BasketCounter from './BasketCounter/BasketCounter';
 import BasketPrice from './BasketPrice/BasketPrice';
 import BasketDeleteButton from './BasketDeleteButton/BasketDeleteButton';
 
-const BasketItem = ({quantity, product: {id, title, price, description, category, image}}) => {
+const BasketItem = ({quantity, product: {id, title, price, description, category, image}, noControls}) => {
 
     const currentCurrency = useSelector(state => state.currency.currentCurrency);
     const exchangeRate = useSelector(state => state.currency.exchangeRate);
@@ -70,14 +70,14 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
     }
 
     return(
-        <StyledBasketItem>
+        <StyledBasketItem className={noControls ? 'disabled' : ''} >
             <StyledImageContainer>
                 <StyledImg src={image} alt={title} />
             </StyledImageContainer>
             <StyledDataContainer>
-                <StyledName>{title}</StyledName>
+                <StyledName><StyledLink to={`/product/${id}`} >{title}</StyledLink></StyledName>
                 <StyledCategory>{category}</StyledCategory>
-                <StyledControls>
+                <StyledControls className={noControls ? 'disabled' : ''} >
                     <BasketCounter value={quantity} increment={hadleIncrementQuantity} decrement={hadleDecrementQuantity} />
                     <BasketPrice price={calculatedPrice} currency={currencySymbol} />
                     <BasketDeleteButton onClick={handleDeleteItem} />
@@ -89,7 +89,8 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
 
 BasketItem.propTypes = {
     product: PropTypes.object,
-    quantity: PropTypes.number
+    quantity: PropTypes.number,
+    noControls: PropTypes.bool
 }
 
 export default BasketItem;

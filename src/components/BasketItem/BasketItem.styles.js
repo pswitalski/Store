@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Link } from "react-router-dom";
+
 export const StyledBasketItem = styled.div`
     display: flex;
     flex-direction: row;
@@ -7,6 +9,10 @@ export const StyledBasketItem = styled.div`
     width: 100%;
     height: 128px;
     padding: 14px 0;
+
+    &.disabled {
+        border: none;
+    }
 `;
 
 export const StyledImageContainer = styled.div`
@@ -53,4 +59,13 @@ export const StyledControls = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-top: auto;
+
+    &.disabled {
+        display: none;
+    }
+`;
+
+export const StyledLink = styled(Link)`
+    color: inherit;
+    text-decoration: none;
 `;
