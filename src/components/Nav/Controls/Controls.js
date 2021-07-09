@@ -47,12 +47,14 @@ const Controls = () => {
         dispatch(toggleSearchModalOpen());
     }
 
+    const itemsInBasket = useSelector(state => state.basket.quantityOfItems);
+
 return (
     <StyledUl>
         <li><ControlButton icon={search} onClick={openSearchModalHandler} /></li>
         <li><ControlButton icon={globe} onClick={openCurrencyHandler} /></li>
         <li><ControlButton icon={person} onClick={openLoginModalHandler} /></li>
-        <li><ControlButton icon={basket} counter={23} onClick={openShoppingCartHandler} /></li>
+        <li><ControlButton icon={basket} counter={itemsInBasket} onClick={openShoppingCartHandler} /></li>
         <li><ControlButton icon={menu} mobile onClick={openMenuHandler} /></li>
     </StyledUl>
 )

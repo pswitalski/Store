@@ -6,7 +6,8 @@ export const basketSlice = createSlice({
         shoppingCartOpen: false,
         itemsInBasket: [],
         total: 0,
-        currencySymbol: '$'
+        currencySymbol: '$',
+        quantityOfItems: 0
     },
     reducers: {
         toggleShoppingCartModal: (state, action) => {
@@ -84,11 +85,13 @@ export const basketSlice = createSlice({
         sumBasketValue: (state) => {
             const currentBasket = current(state.itemsInBasket);
             const values = [];
+            const quantities = [];
             currentBasket.forEach(item => {
                 const multiplyer = item.quantity;
                 const price = item.product.price;
                 const value = multiplyer * price;
                 values.push(value);
+                quantities.push(multiplyer)
             })
 
             let sum = 0;
@@ -97,7 +100,18 @@ export const basketSlice = createSlice({
                 sum = sum + item;
             })
 
+            console.log(quantities)
+
+            let totalQuantity = 0;
+
+            if (quantities.length > 0) {
+                totalQuantity = quantities.reduce((acc, current) => {
+                    return acc + current;
+                })
+            }
+
             state.total = sum;
+            state.quantityOfItems = totalQuantity;
         },
         changeCurrencySymbol: (state, action) => {
             console.log(action.payload)
