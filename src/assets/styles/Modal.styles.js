@@ -14,4 +14,14 @@ export const StyledModal = styled.div`
     justify-content: flex-start;
     border: 2px solid #E6E6E6;
     padding-bottom: 24px;
+
+    @media (max-width: 800px) {
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @media (max-width: 400px) {
+        width: 360px;
+    }
 `;
