@@ -6,17 +6,20 @@ import { StyledUl, StyledLi, StyledNavLink, StyledCloseButton } from './Categori
 
 import closeImg from 'assets/icons/x 1.png';
 
+import { useCloseModals } from 'hooks/useCloseModals';
+
 const Categories = () => {
 
     const categories = useSelector(state => state.categories.categories);
     const navOpen = useSelector(state => state.navOpen.navOpen);
     const dispatch = useDispatch();
 
+    const closeAllModals = useCloseModals();
+
     const createCategories = (list) => {
         const categoriesComponents = list.map((category) => {
             return(
-                <StyledLi key={category} ><StyledNavLink to={`/category/${category}`} onClick={closeMenuHandler} >{category}</StyledNavLink></StyledLi>
-
+                <StyledLi key={category} onClick={closeAllModals} ><StyledNavLink to={`/category/${category}`} onClick={closeMenuHandler} >{category}</StyledNavLink></StyledLi>
             )
         });
         return(

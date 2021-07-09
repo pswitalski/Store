@@ -7,9 +7,15 @@ import MiddleFooter from './MiddleFooter/MiddleFooter';
 import BottomFooter from './BottomFooter/BottomFooter';
 import { Wrapper } from 'assets/styles/Wrapper';
 
+import { useCloseModals } from 'hooks/useCloseModals';
+
 const Footer = () => {
+
+
+    const closeAllModals = useCloseModals();
+
     return(
-        <StyledFooter>
+        <StyledFooter onClick={closeAllModals} >
             <Wrapper>
                 <StyledFlexContainer>
                     <TopFooter />
