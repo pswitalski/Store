@@ -8,6 +8,7 @@ import exampleUserReducer from 'features/exampleUser/exampleUserSlice';
 import currentUserReducer from 'features/currentUser/currentUserSlice';
 import currencyReducer from 'features/currency/currencySlice';
 import basketReducer from 'features/basket/basketSlice';
+import searchReducer from 'features/search/searchSlice';
 
 export const store = configureStore({
   reducer: {
@@ -20,5 +21,6 @@ export const store = configureStore({
     currentUser: currentUserReducer,
     currency: currencyReducer,
     basket: basketReducer,
+    search: searchReducer
   }
 });

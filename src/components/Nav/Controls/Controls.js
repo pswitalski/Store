@@ -5,6 +5,7 @@ import { toggleLoginModal } from 'features/loginModalOpen/loginModalSlice';
 import { toggleUserProfileModal } from 'features/currentUser/currentUserSlice';
 import { toggleCurrencyModal } from 'features/currency/currencySlice';
 import { toggleShoppingCartModal } from 'features/basket/basketSlice';
+import { toggleSearchModalOpen } from 'features/search/searchSlice';
 
 import ControlButton from './ControlButton/ControlButton';
 
@@ -42,9 +43,13 @@ const Controls = () => {
         dispatch(toggleShoppingCartModal());
     }
 
+    const openSearchModalHandler = () => {
+        dispatch(toggleSearchModalOpen());
+    }
+
 return (
     <StyledUl>
-        <li><ControlButton icon={search} /></li>
+        <li><ControlButton icon={search} onClick={openSearchModalHandler} /></li>
         <li><ControlButton icon={globe} onClick={openCurrencyHandler} /></li>
         <li><ControlButton icon={person} onClick={openLoginModalHandler} /></li>
         <li><ControlButton icon={basket} counter={23} onClick={openShoppingCartHandler} /></li>
