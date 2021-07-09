@@ -23,7 +23,6 @@ const Controls = () => {
 
     const dispatch = useDispatch();
     const isUserLogIn = useSelector(state => state.currentUser.isUserLogIn);
-    console.log(isUserLogIn)
 
     const closeAllModals = useCloseModals();
 
@@ -68,11 +67,11 @@ const Controls = () => {
 
 return (
     <StyledUl>
-        <li><ControlButton icon={search} onClick={openSearchModalHandler} /></li>
-        <li><ControlButton icon={globe} onClick={openCurrencyHandler} /></li>
-        <li><ControlButton icon={person} onClick={openLoginModalHandler} /></li>
-        <li><ControlButton icon={basket} counter={itemsInBasket} onClick={openShoppingCartHandler} /></li>
-        <li><ControlButton icon={menu} mobile onClick={openMenuHandler} /></li>
+        <li><ControlButton icon={search} alt="search" onClick={openSearchModalHandler} /></li>
+        <li><ControlButton icon={globe} alt="currency" onClick={openCurrencyHandler} /></li>
+        <li><ControlButton icon={person} alt="login" onClick={openLoginModalHandler} /></li>
+        <li><ControlButton icon={basket} alt="basket" counter={itemsInBasket} onClick={openShoppingCartHandler} /></li>
+        <li><ControlButton icon={menu} alt="menu" mobile onClick={openMenuHandler} /></li>
     </StyledUl>
 )
 }

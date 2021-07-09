@@ -28,8 +28,6 @@ const SearchModal = () => {
 
     useEffect(() => {
         if (items.electronics.length === 0) {
-            console.log('pusto')
-
             const fetchElectronics = async () => {
                 const response = await getItemsFromCategory('electronics');
                 dispatch(addElectronics(response))

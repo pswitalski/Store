@@ -6,9 +6,7 @@ import { StyledExampleLoginData, StyledUl } from './ExampleLoginData.styles';
 import { StyledP } from 'components/LoginModal/LoginModal.styles';
 
 const ExampleLoginData = () => {
-
     const exampleUser = useSelector(state => state.exampleUser.exampleUser);
-    console.log(exampleUser.data.email)
     return(
         <StyledExampleLoginData>
             <StyledP>You can use this data:</StyledP>

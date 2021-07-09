@@ -14,7 +14,6 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
 
     const currentCurrency = useSelector(state => state.currency.currentCurrency);
     const exchangeRate = useSelector(state => state.currency.exchangeRate);
-    console.log(exchangeRate)
 
     const [currencySymbol, setCurrencySymbol] = useState('$');
     const [calculatedPrice, setCalculatedPrice] = useState(0);

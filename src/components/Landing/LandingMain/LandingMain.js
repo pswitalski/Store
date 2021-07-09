@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-import { StyledLandingMain, StyledDiv, StyledH3, StyledH4 } from './LandingMain.styles';
+import { StyledLandingMain, StyledDiv, StyledH1, StyledH2 } from './LandingMain.styles';
 
 const LandingMain = ({title, subtitle}) => {
     return(
         <StyledLandingMain>
             <StyledDiv>
-                <StyledH4>{subtitle}</StyledH4>
-                <StyledH3>{title}</StyledH3>
+                <StyledH1>{subtitle}</StyledH1>
+                <StyledH2>{title}</StyledH2>
             </StyledDiv>
         </StyledLandingMain>
     )

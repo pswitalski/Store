@@ -13,7 +13,6 @@ import { openLoginModal } from 'features/loginModalOpen/loginModalSlice';
 const UserProfile = () => {
 
     const userData = useSelector(state => state.exampleUser);
-    console.log(userData.exampleUser.data)
 
     const {email, first_name, last_name, avatar} = userData.exampleUser.data;
 

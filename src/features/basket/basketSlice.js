@@ -20,8 +20,6 @@ export const basketSlice = createSlice({
             state.shoppingCartOpen = false;
         },
         manageItemsInBasket: (state, action) => {
-            console.log(action.payload.payload);
-            console.log(action.payload.type);
             const currentState = current(state.itemsInBasket);
             switch(action.payload.type) {
                 case 'ADD':
@@ -100,8 +98,6 @@ export const basketSlice = createSlice({
                 sum = sum + item;
             })
 
-            console.log(quantities)
-
             let totalQuantity = 0;
 
             if (quantities.length > 0) {
@@ -114,8 +110,6 @@ export const basketSlice = createSlice({
             state.quantityOfItems = totalQuantity;
         },
         changeCurrencySymbol: (state, action) => {
-            console.log(action.payload)
-
             switch(action.payload) {
                 case 'pln':
                     state.currencySymbol = 'PLN';

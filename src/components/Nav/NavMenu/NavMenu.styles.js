@@ -9,6 +9,7 @@ export const StyledNavMenu = styled.nav`
     display: none;
     height: 336px;
     z-index: 120;
+    border-bottom: 2px solid ${props => props.theme.colors.grey};
 
     ${ StyledNav }:hover & {
         display: block;

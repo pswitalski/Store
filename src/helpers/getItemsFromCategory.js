@@ -8,11 +8,9 @@ export const getItemsFromCategory = async (category) => {
             throw new Error(response.status)
         }
         const json = await response.json();
-        console.log(json);
         return(json);
 
     } catch(err) {
-        console.log(err);
         return 'Something went wrong'
     }
 

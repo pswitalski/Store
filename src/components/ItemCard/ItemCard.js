@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { manageItemsInBasket, toggleShoppingCartModal } from 'features/basket/basketSlice';
+import { manageItemsInBasket } from 'features/basket/basketSlice';
 
 import { StyledItemCard, StyledH3, StyledImg, StyledP, StyledHoverContainer, StyledDataContainer, StyledPriceGradeContainer, StyledLink } from './ItemCard.styles';
 
@@ -48,7 +48,6 @@ const ItemCard = ({item}) => {
     const dispatch = useDispatch();
 
     const handleAddItemToBasket = () => {
-        console.log('click')
         dispatch(manageItemsInBasket({payload: item, type: 'ADD'}));
     }
 

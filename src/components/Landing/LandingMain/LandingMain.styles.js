@@ -38,7 +38,7 @@ export const StyledDiv = styled.div`
     }
 `;
 
-export const StyledH3 = styled.h3`
+export const StyledH2 = styled.h2`
     text-transform: uppercase;
     margin: auto 24px;
     color: ${props => props.theme.colors.dark};
@@ -52,7 +52,7 @@ export const StyledH3 = styled.h3`
     }
 `;
 
-export const StyledH4 = styled.h4`
+export const StyledH1 = styled.h1`
     text-transform: uppercase;
     margin: auto;
     font-size: 12px;

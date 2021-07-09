@@ -22,7 +22,6 @@ const NavMenu = () => (
                     </StyledLink>
                 </StyledItemsContainer>
             </StyledNavMenuContainer>
-
         </Wrapper>
     </StyledNavMenu>
 )
