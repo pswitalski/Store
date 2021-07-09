@@ -18,6 +18,7 @@ import Home from 'pages/Home';
 import Category from 'pages/Category';
 import ProductPage from 'pages/ProductPage';
 import Page404 from 'pages/Page404';
+import Basket from 'pages/Basket';
 
 import { getCategoriesFromApi } from 'helpers/getCategoriesFromApi';
 import { useDispatch, useSelector } from 'react-redux';
@@ -117,6 +118,10 @@ function App() {
 
             <Route path="/product/:id" >
               <ProductPage />
+            </Route>
+
+            <Route path="/basket" >
+              <Basket />
             </Route>
 
             <Route>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { closeShoppingCartModal } from 'features/basket/basketSlice';
 
@@ -10,6 +12,8 @@ import ModalHeader from 'components/ModalHeader/ModalHeader';
 import ModalButton from 'components/ModalButton/ModalButton';
 import BasketItem from 'components/BasketItem/BasketItem';
 import ShoppingCartTotal from './ShoppingCartTotal/ShoppingCartTotal';
+
+import { useCloseModals } from 'hooks/useCloseModals';
 
 const ShoppingCartModal = () => {
 
@@ -26,6 +30,8 @@ const ShoppingCartModal = () => {
         return items;
     }
 
+    const closeAllModals = useCloseModals();
+
     return(
         <StyledModal>
             <ModalHeader text="shopping cart" close={closeModalHandler} />
@@ -34,7 +40,7 @@ const ShoppingCartModal = () => {
             </StyledItemsContainer>
             <ShoppingCartTotal />
             <ModalButton text="check out" isDark />
-            <ModalButton text="view cart" />
+            <Link to="/basket" onClick={closeAllModals} ><ModalButton text="view cart" /></Link>
         </StyledModal>
     )
 }
