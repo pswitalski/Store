@@ -16,13 +16,11 @@ const MainBasket = () => {
     const dispatch = useDispatch(clearBasket());
 
     const clearBasketHandler = () => {
-        console.log('click')
         dispatch(clearBasket());
     }
 
     const generateItems = () => {
         const items = itemsInBasket.map(item => {
-            console.log(item)
             return(
                 <BasketItem product={item.product} quantity={item.quantity} key={item.product.id} />
             )

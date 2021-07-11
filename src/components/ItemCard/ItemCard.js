@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { manageItemsInBasket } from 'features/basket/basketSlice';
+import { addLastAddedItem, openAddedModal } from 'features/addedToCart/addetToCartSlice';
 
 import { StyledItemCard, StyledH3, StyledImg, StyledP, StyledHoverContainer, StyledDataContainer, StyledPriceGradeContainer, StyledLink } from './ItemCard.styles';
 
@@ -49,6 +50,8 @@ const ItemCard = ({item}) => {
 
     const handleAddItemToBasket = () => {
         dispatch(manageItemsInBasket({payload: item, type: 'ADD'}));
+        dispatch(addLastAddedItem({payload: item}));
+        dispatch(openAddedModal());
     }
 
     return(

@@ -8,6 +8,7 @@ export const StyledBasketDeleteButton = styled.button`
     width: 24px;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 `;
 
 export const StyledImg = styled.img`

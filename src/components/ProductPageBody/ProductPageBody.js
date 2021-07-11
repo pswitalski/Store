@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
 import { manageItemsInBasket } from 'features/basket/basketSlice';
+import { openAddedModal, addLastAddedItem } from 'features/addedToCart/addetToCartSlice';
 
 import { StyledProductPageBody, StyledLeftContainer, StyledRightContainer, StyledImg } from './ProductPageBody.styles';
 
@@ -19,6 +20,8 @@ const ProductPageBody = ({product}) => {
 
     const handleAddItemToBasket = () => {
         dispatch(manageItemsInBasket({type: 'ADD', payload: product}));
+        dispatch(addLastAddedItem({payload: product}));
+        dispatch(openAddedModal());
     }
 
     return(

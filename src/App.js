@@ -13,6 +13,7 @@ import UserProfile from 'components/UserProfile/UserProfile';
 import CurrencyModal from 'components/CurrencyModal/CurrencyModal';
 import ShopingCartModal from 'components/ShoppingCart/ShoppingCartModal';
 import SearchModal from 'components/SearchModal/SearchModal';
+import AddedToCartModal from 'components/AddedToCartModal/AddedToCartModal';
 
 import Home from 'pages/Home';
 import Category from 'pages/Category';
@@ -84,6 +85,7 @@ function App() {
   const isCurrencyModalOpen = useSelector(state => state.currency.currencyModalOpen);
   const isShoppingCartOpen = useSelector(state => state.basket.shoppingCartOpen);
   const isSearchModalOpen = useSelector(state => state.search.searchModalOpen);
+  const isAddedToCartModalOpen = useSelector(state => state.addedToCart.modalOpen);
 
   const basket = useSelector(state => state.basket);
   const currency = useSelector(state => state.currency.currentCurrency);
@@ -106,6 +108,7 @@ function App() {
           {isCurrencyModalOpen ? <CurrencyModal /> : null}
           {isShoppingCartOpen ? <ShopingCartModal /> : null}
           {isSearchModalOpen ? <SearchModal /> : null}
+          {isAddedToCartModalOpen ? <AddedToCartModal /> : null}
 
           <Switch>
             <Route exact path="/" >
