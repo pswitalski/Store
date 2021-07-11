@@ -39,7 +39,7 @@ const ShoppingCartModal = () => {
                 {createBasketItems()}
             </StyledItemsContainer>
             <ShoppingCartTotal />
-            <ModalButton text="check out" isDark />
+            <Link to="/checkout" onClick={closeAllModals} ><ModalButton text="check out" isDark /></Link>
             <Link to="/basket" onClick={closeAllModals} ><ModalButton text="view cart" /></Link>
         </StyledModal>
     )

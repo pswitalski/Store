@@ -6,14 +6,14 @@ import { StyledBasketCounter, StyledButton, StyledP, StyledImg } from './BasketC
 import plusImg from 'assets/icons/plus-sm 1.png';
 import minusImg from 'assets/icons/minus-sm 1.png';
 
-const BasketCounter = ({value, increment, decrement}) => {
+const BasketCounter = ({value, increment, decrement, checkout}) => {
     return (
-        <StyledBasketCounter>
-            <StyledButton onClick={decrement} disabled={value < 2 ? true : false} >
+        <StyledBasketCounter className={checkout ? 'hide' : ''} >
+            <StyledButton onClick={decrement} disabled={value < 2 ? true : false} className={checkout ? 'hide' : ''} >
                 <StyledImg src={minusImg}  alt="minus"/>
             </StyledButton>
             <StyledP>{value}</StyledP>
-            <StyledButton onClick={increment} >
+            <StyledButton onClick={increment} className={checkout ? 'hide' : ''} >
                 <StyledImg src={plusImg} alt="plus" />
             </StyledButton>
         </StyledBasketCounter>
@@ -23,7 +23,8 @@ const BasketCounter = ({value, increment, decrement}) => {
 BasketCounter.propTypes = {
     value: PropTypes.number,
     increment: PropTypes.func,
-    decrement: PropTypes.func
+    decrement: PropTypes.func,
+    checkout: PropTypes.bool
 }
 
 export default BasketCounter;

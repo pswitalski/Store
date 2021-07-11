@@ -7,6 +7,10 @@ export const StyledBasketCounter = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &.hide {
+        justify-content: center;
+    }
 `;
 
 export const StyledButton = styled.button`
@@ -18,6 +22,10 @@ export const StyledButton = styled.button`
 
     &:disabled {
         cursor: default;
+    }
+
+    &.hide {
+        display: none;
     }
 `;
 

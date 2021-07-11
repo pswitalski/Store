@@ -6,7 +6,7 @@ import BasketItem from 'components/BasketItem/BasketItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearBasket } from 'features/basket/basketSlice';
 
-import { StyledMainBasket, StyledHeader, StyledItemsContainer, StyledSummaryContainer, StyledH1, StyledButton, StyledP, StyledSpan } from './MainBasket.styles';
+import { StyledMainBasket, StyledHeader, StyledItemsContainer, StyledSummaryContainer, StyledH1, StyledButton, StyledP, StyledSpan, StyledLink } from './MainBasket.styles';
 
 const MainBasket = () => {
 
@@ -45,7 +45,9 @@ const MainBasket = () => {
                     <StyledSpan>{` ${currencySymbol} ${total.toFixed(2)}`}</StyledSpan>
                 </StyledP>
                 <StyledP>Shipping: <StyledSpan>FREE!</StyledSpan></StyledP>
-                <Button text="check out" />
+                <StyledLink to="/checkout" >
+                    <Button text="check out" />
+                </StyledLink>
             </StyledSummaryContainer>
         </StyledMainBasket>
     )

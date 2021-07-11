@@ -10,7 +10,7 @@ import BasketCounter from './BasketCounter/BasketCounter';
 import BasketPrice from './BasketPrice/BasketPrice';
 import BasketDeleteButton from './BasketDeleteButton/BasketDeleteButton';
 
-const BasketItem = ({quantity, product: {id, title, price, description, category, image}, noControls}) => {
+const BasketItem = ({quantity, product: {id, title, price, description, category, image}, noControls, checkout}) => {
 
     const currentCurrency = useSelector(state => state.currency.currentCurrency);
     const exchangeRate = useSelector(state => state.currency.exchangeRate);
@@ -77,9 +77,9 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
                 <StyledName><StyledLink to={`/product/${id}`} >{title}</StyledLink></StyledName>
                 <StyledCategory>{category}</StyledCategory>
                 <StyledControls className={noControls ? 'disabled' : ''} >
-                    <BasketCounter value={quantity} increment={hadleIncrementQuantity} decrement={hadleDecrementQuantity} />
+                    <BasketCounter value={quantity} increment={hadleIncrementQuantity} decrement={hadleDecrementQuantity} checkout={checkout} />
                     <BasketPrice price={calculatedPrice} currency={currencySymbol} />
-                    <BasketDeleteButton onClick={handleDeleteItem} />
+                    {!checkout ? <BasketDeleteButton onClick={handleDeleteItem}  /> : null}
                 </StyledControls>
             </StyledDataContainer>
         </StyledBasketItem>
@@ -89,7 +89,8 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
 BasketItem.propTypes = {
     product: PropTypes.object,
     quantity: PropTypes.number,
-    noControls: PropTypes.bool
+    noControls: PropTypes.bool,
+    checkout: PropTypes.bool
 }
 
 export default BasketItem;

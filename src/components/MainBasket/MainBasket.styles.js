@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Link } from "react-router-dom";
+
 export const StyledMainBasket = styled.main`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -65,4 +67,9 @@ export const StyledP = styled.p`
 
 export const StyledSpan = styled.span`
     font-weight: 700;
+`;
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: inherit
 `;
