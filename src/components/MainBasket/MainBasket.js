@@ -1,32 +1,52 @@
 import React from 'react';
 
 import Button from 'components/ItemCard/Button/Button';
+import BasketItem from 'components/BasketItem/BasketItem';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearBasket } from 'features/basket/basketSlice';
 
-import { StyledMainBasket, StyledHeader, StyledItemsContainer, StyledSummaryContainer, StyledH1, StyledButton, StyledP } from './MainBasket.styles';
+import { StyledMainBasket, StyledHeader, StyledItemsContainer, StyledSummaryContainer, StyledH1, StyledButton, StyledP, StyledSpan } from './MainBasket.styles';
 
 const MainBasket = () => {
 
     const basket = useSelector(state => state.basket);
     const {itemsInBasket, currencySymbol, quantityOfItems, total} = basket;
 
-    console.log(basket)
+    const dispatch = useDispatch(clearBasket());
+
+    const clearBasketHandler = () => {
+        console.log('click')
+        dispatch(clearBasket());
+    }
+
+    const generateItems = () => {
+        const items = itemsInBasket.map(item => {
+            console.log(item)
+            return(
+                <BasketItem product={item.product} quantity={item.quantity} key={item.product.id} />
+            )
+        })
+        return items;
+    }
 
     return(
         <StyledMainBasket>
             <StyledHeader>
                 <StyledH1>{`Basket (${quantityOfItems})`}</StyledH1>
-                <Button text="clear basket" />
+                <Button text="clear basket" onClick={clearBasketHandler} />
             </StyledHeader>
-            <StyledItemsContainer></StyledItemsContainer>
+            <StyledItemsContainer>
+                {quantityOfItems === 0 ? <StyledP>Your basket is empty.</StyledP> : null}
+                {generateItems()}
+            </StyledItemsContainer>
             <StyledSummaryContainer>
                 <StyledH1>Summary</StyledH1>
                 <StyledP>
-                    {`Total: ${currencySymbol} ${total}`}
+                    Total:
+                    <StyledSpan>{` ${currencySymbol} ${total.toFixed(2)}`}</StyledSpan>
                 </StyledP>
-                <StyledP>Shipping: 5$ to do</StyledP>
-                <StyledP>With shipping: to do</StyledP>
+                <StyledP>Shipping: <StyledSpan>FREE!</StyledSpan></StyledP>
                 <Button text="check out" />
             </StyledSummaryContainer>
         </StyledMainBasket>

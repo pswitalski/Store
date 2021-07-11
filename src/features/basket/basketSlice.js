@@ -124,10 +124,13 @@ export const basketSlice = createSlice({
                     state.currencySymbol = '$';
                     break;
             }
+        },
+        clearBasket: (state) => {
+            state.itemsInBasket.length = 0;
         }
     }
 })
 
-export const { toggleShoppingCartModal, openShoppingCardModal, closeShoppingCartModal, manageItemsInBasket, sumBasketValue, changeCurrencySymbol } = basketSlice.actions;
+export const { toggleShoppingCartModal, openShoppingCardModal, closeShoppingCartModal, manageItemsInBasket, sumBasketValue, changeCurrencySymbol, clearBasket } = basketSlice.actions;
 
 export default basketSlice.reducer;

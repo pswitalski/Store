@@ -10,6 +10,10 @@ export const StyledBasketItem = styled.div`
     height: 128px;
     padding: 14px 0;
 
+    &:last-child {
+        border: none;
+    }
+
     &.disabled {
         border: none;
     }
