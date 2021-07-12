@@ -11,4 +11,9 @@ export const StyledButton = styled.button`
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+
+    &:disabled {
+        cursor: default;
+        opacity: 0.8;
+    }
 `;

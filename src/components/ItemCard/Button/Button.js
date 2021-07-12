@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import { StyledButton } from './Button.styles';
 
-const Button = ({text, onClick}) => {
+const Button = ({text, onClick, disabled}) => {
     return(
-        <StyledButton onClick={onClick} >
+        <StyledButton onClick={onClick} disabled={disabled} >
             {text}
         </StyledButton>
     )
@@ -13,7 +13,8 @@ const Button = ({text, onClick}) => {
 
 Button.propTypes = {
     text: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool
 }
 
 export default Button;

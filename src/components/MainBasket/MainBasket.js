@@ -46,7 +46,7 @@ const MainBasket = () => {
                 </StyledP>
                 <StyledP>Shipping: <StyledSpan>FREE!</StyledSpan></StyledP>
                 <StyledLink to="/checkout" >
-                    <Button text="check out" />
+                    <Button text="check out" disabled={quantityOfItems === 0 ? true : false} />
                 </StyledLink>
             </StyledSummaryContainer>
         </StyledMainBasket>

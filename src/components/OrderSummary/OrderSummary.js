@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Redirect } from 'react-router';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { clearBasket } from 'features/basket/basketSlice';
 
@@ -16,7 +18,8 @@ const OrderSummary = () => {
     const { currencySymbol, itemsInBasket, total, quantityOfItems } = basket;
 
     const isUserLoggedIn = useSelector(state => state.currentUser.isUserLogIn);
-    const userId = useSelector(state => state.exampleUser.exampleUser.data.id);
+
+    const user = useSelector(state => state.exampleUser);
 
     const generateItems = () => {
         const items = itemsInBasket.map(item => {
@@ -34,7 +37,7 @@ const OrderSummary = () => {
 
 
     const confirmOrderHandler = async () => {
-        const response = await sendOrderToApi(userId, itemsInBasket);
+        const response = await sendOrderToApi(user.exampleUser.data.id, itemsInBasket);
 
         if (typeof(response) === 'string') {
             console.log('string');
@@ -49,6 +52,7 @@ const OrderSummary = () => {
 
     return(
         <StyledOrderSummary>
+            {quantityOfItems === 0 && !isOrderConfirmed ? <Redirect to="/basket" /> : null}
             <StyledH1>
                 {isOrderConfirmed ? "Thank you for your order" : "Your order summary"}
             </StyledH1>
