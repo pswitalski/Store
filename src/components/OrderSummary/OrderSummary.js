@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearBasket } from 'features/basket/basketSlice';
 
 import { StyledOrderSummary, StyledH1, StyledDataContainer, StyledItemsContainer, StyledP, StyledSpan } from './OrderSummary.styles';
 
 import ModalButton from 'components/ModalButton/ModalButton';
 import BasketItem from 'components/BasketItem/BasketItem';
 
+import { sendOrderToApi } from 'helpers/sendOrderToApi';
+
 const OrderSummary = () => {
 
     const basket = useSelector(state => state.basket);
     const { currencySymbol, itemsInBasket, total, quantityOfItems } = basket;
-    console.log(basket)
-    console.log(itemsInBasket)
+
+    const isUserLoggedIn = useSelector(state => state.currentUser.isUserLogIn);
+    const userId = useSelector(state => state.exampleUser.exampleUser.data.id);
 
     const generateItems = () => {
         const items = itemsInBasket.map(item => {
@@ -23,22 +27,45 @@ const OrderSummary = () => {
         return items;
     }
 
+    const dispatch = useDispatch();
+
+    const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
+
+    const confirmOrderHandler = async () => {
+        const response = await sendOrderToApi(userId, itemsInBasket);
+
+        if (typeof(response) === 'string') {
+            console.log('string');
+            setErrorMessage(response);
+            return;
+        }
+
+        setErrorMessage('');
+        setIsOrderConfirmed(true);
+        dispatch(clearBasket());
+    }
+
     return(
         <StyledOrderSummary>
             <StyledH1>
-                Your order summary
+                {isOrderConfirmed ? "Thank you for your order" : "Your order summary"}
             </StyledH1>
             <StyledItemsContainer>
-                {generateItems()}
+                {isOrderConfirmed ? <StyledP>Your order is confirmed.</StyledP> : null}
+                {!isOrderConfirmed ? generateItems() : null}
             </StyledItemsContainer>
-            <StyledDataContainer>
+            <StyledDataContainer className={isOrderConfirmed ? 'disabled' : ''} >
                 <StyledP>
                     {quantityOfItems} item{quantityOfItems > 1 ? 's' : null} in basket.
                 </StyledP>
                 <StyledP>
-                   Total: <StyledSpan>{currencySymbol}{total}</StyledSpan>
+                   Total: <StyledSpan>{currencySymbol}{total.toFixed(2)}</StyledSpan>
                 </StyledP>
-                <ModalButton isDark text="confirm order" />
+                {!isUserLoggedIn ? <StyledP className="red" >To confirm your order you must log in.</StyledP> : null}
+                {errorMessage ? <StyledP className="red" >{errorMessage}</StyledP> : null}
+                <ModalButton isDark text="confirm order" disabled={isUserLoggedIn ? false : true} onClick={confirmOrderHandler} />
             </StyledDataContainer>
         </StyledOrderSummary>
     )

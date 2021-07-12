@@ -37,7 +37,7 @@ const BasketItem = ({quantity, product: {id, title, price, description, category
                 setCalculatedPrice(price);
                 break;
         }
-    }, [currentCurrency]);
+    }, [currentCurrency, exchangeRate, currencySymbol, calculatedPrice, price]);
 
     const dispatch = useDispatch();
 

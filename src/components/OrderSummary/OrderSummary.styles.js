@@ -17,10 +17,18 @@ export const StyledItemsContainer = styled.div``;
 export const StyledDataContainer = styled.div`
     margin-top: 10px;
     text-align: center;
+
+    &.disabled {
+        display: none;
+    }
 `;
 
 export const StyledP = styled.p`
     line-height: 30px;
+
+    &.red {
+        color: ${props => props.theme.colors.error};
+    }
 `;
 
 export const StyledSpan = styled.span`

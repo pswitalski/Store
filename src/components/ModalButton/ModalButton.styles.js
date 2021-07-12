@@ -12,4 +12,9 @@ export const StyledModalButton = styled.button`
     letter-spacing: 0.06em;
     border: none;
     cursor: pointer;
+
+    &:disabled {
+        cursor: default;
+        opacity: 0.8;
+    }
 `;
