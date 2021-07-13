@@ -6,7 +6,7 @@ import { StyledBasketPrice } from './BasketPrice.styles';
 const BasketPrice = ({price, currency}) => {
     return(
         <StyledBasketPrice>
-           {currency} {price.toFixed(2)}
+           {currency} {price ? price.toFixed(2) : '0.00'}
         </StyledBasketPrice>
     )
 }

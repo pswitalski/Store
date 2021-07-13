@@ -6,10 +6,10 @@ const LoadingIndicator = () => {
     return(
         <StyledLoadingIndicator>
             <StyledContainer>
-                <StyledBoxTop />
-                <StyledBoxRight />
-                <StyledBoxBottom />
-                <StyledBoxLeft />
+                <StyledBoxTop data-testid="square" />
+                <StyledBoxRight data-testid="square" />
+                <StyledBoxBottom data-testid="square" />
+                <StyledBoxLeft data-testid="square" />
             </StyledContainer>
         </StyledLoadingIndicator>
     )
