@@ -39,7 +39,6 @@ const TopFooter = () => {
             setPlaceholderValue(response);
             setInputValue('');
         }
-        console.log(response)
     }
 
     return(
