@@ -4,7 +4,7 @@ import { StyledLoadingIndicator, StyledContainer, StyledBoxTop, StyledBoxBottom,
 
 const LoadingIndicator = () => {
     return(
-        <StyledLoadingIndicator>
+        <StyledLoadingIndicator data-testid="loading" >
             <StyledContainer>
                 <StyledBoxTop data-testid="square" />
                 <StyledBoxRight data-testid="square" />

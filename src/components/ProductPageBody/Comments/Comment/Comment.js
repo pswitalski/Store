@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { useStateIfMounted } from 'use-state-if-mounted';
+
 import { StyledComment, StyledH4, StyledP, StyledContainer } from './Comment.styles';
 
 import Grade from 'components/ItemCard/Grade/Grade';
 
 const Comment = ({item}) => {
-    const [grade, setGrade] = useState(5);
+    const [grade, setGrade] = useStateIfMounted(5);
 
     useEffect(() => {
         const grade = Math.floor(Math.random() * 5) + 1;

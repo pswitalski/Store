@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
+import { useStateIfMounted } from 'use-state-if-mounted';
+
 import { StyledRelatedProducts, StyledH2, StyledTopConainer, StyledControlsContainer, StyledButton, StyledItemsContainer } from './RelatedProducts.styles';
 
 import ItemCard from 'components/ItemCard/ItemCard';
@@ -10,8 +12,8 @@ import { getItemsFromCategory } from 'helpers/getItemsFromCategory';
 
 const RelatedProducts = ({category}) => {
 
-    const [related, setRelated] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [related, setRelated] = useStateIfMounted([]);
+    const [isLoading, setIsLoading] = useStateIfMounted(false);
     const [touchStart, setTouchStart] = useState(0);
 
     const fetchRelatedItems = async () => {

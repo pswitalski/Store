@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { useStateIfMounted } from 'use-state-if-mounted';
+
 import { StyledComments, StyledH3 } from './Comments.styles';
 
 import LoadingIndicator from 'components/LoadingIndicator/LoadingIndicator';
@@ -10,8 +12,8 @@ import { getCommentsFromApi } from 'helpers/getCommentsFromApi';
 
 const Comments = ({id}) => {
 
-    const [comments, setComments] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [comments, setComments] = useStateIfMounted([]);
+    const [isLoading, setIsLoading] = useStateIfMounted(false);
 
     const fetchComments = async () => {
         setIsLoading(true);

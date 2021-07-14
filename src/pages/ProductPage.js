@@ -35,7 +35,7 @@ const ProductPage = () => {
     return(
         <div className="product-page" onClick={closeAllModals} >
             <Wrapper>
-                {isLoading ? <LoadingIndicator/> : null}
+                {isLoading ? <LoadingIndicator /> : null}
                 {!isLoading ? <ProductName product={currentProduct} /> : null}
                 {!isLoading ? <ProductPageBody product={currentProduct} /> : null}
                 {!isLoading ? <RelatedProducts category={currentProduct.category} /> : null}
