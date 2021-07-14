@@ -55,7 +55,7 @@ const ItemCard = ({item}) => {
     }
 
     return(
-        <StyledItemCard className={`item-id=${id}`} >
+        <StyledItemCard className={`item-id=${id}`} data-testid="itemCard" >
             <StyledLink to={`/product/${id}`}>
                 <StyledImg src={image} alt={title} />
                 <StyledDataContainer>
