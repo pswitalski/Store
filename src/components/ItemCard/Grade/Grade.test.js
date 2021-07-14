@@ -25,7 +25,6 @@ describe('Grade', () => {
     it('has the properly src', () => {
         render(renderWithProviders(<Grade grade={4} />));
         const stars = screen.getAllByAltText("star");
-        console.log(stars)
         stars.forEach(star => {
             expect(star.src).toBe('http://localhost/star.png');
         })
