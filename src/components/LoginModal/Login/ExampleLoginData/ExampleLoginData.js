@@ -11,7 +11,7 @@ const ExampleLoginData = () => {
         <StyledExampleLoginData>
             <StyledP>You can use this data:</StyledP>
             <StyledUl>
-                <li>Username: {exampleUser.data.email}</li>
+                <li>Email: {exampleUser.data.email}</li>
                 <li>Password: any</li>
             </StyledUl>
         </StyledExampleLoginData>

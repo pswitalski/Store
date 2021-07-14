@@ -38,7 +38,7 @@ const Price = ({id, price = 0, handleAddItemToBasket}) => {
     return(
         <StyledPrice>
             <StyledP>{exchangeRate.symbol ? exchangeRate.symbol : '$'} {calculatedPrice.toFixed(2)}</StyledP>
-            <Button text="add to card" onClick={handleAddItemToBasket} />
+            <Button text="add to cart" onClick={handleAddItemToBasket} />
         </StyledPrice>
     )
 }
