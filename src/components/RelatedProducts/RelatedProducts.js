@@ -96,7 +96,7 @@ const RelatedProducts = ({category}) => {
                 </StyledControlsContainer>
             </StyledTopConainer>
             {isLoading ? <LoadingIndicator /> : null}
-            <StyledItemsContainer ref={slider} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}  >
+            <StyledItemsContainer ref={slider} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} data-testid="slider" >
                 {!isLoading ? createRelatedItems() : null}
             </StyledItemsContainer>
         </StyledRelatedProducts>

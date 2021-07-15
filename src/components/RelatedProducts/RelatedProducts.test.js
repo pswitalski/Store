@@ -1,9 +1,13 @@
 import React from 'react';
 import RelatedProducts from './RelatedProducts';
-import { render, screen, waitForElementToBeRemoved, waitForDomChange } from '@testing-library/react';
+import { render, screen, waitForElementToBeRemoved, waitForDomChange, fireEvent } from '@testing-library/react';
 import { renderWithProviders } from 'helpers/renderWithProviders';
 
 import { jewelery } from 'mocks/jewelery';
+
+import fetchMock from 'jest-fetch-mock';
+
+fetchMock.disableMocks();
 
 describe('RelatedProducts', () => {
     it('Renders the component', () => {
@@ -17,7 +21,7 @@ describe('RelatedProducts', () => {
         await waitForDomChange(() => {
             expect(loadingIndicator).not.toBeInTheDocument();
         })
-    })
+    });
 
     it('Shows related itmes', async() => {
         render(renderWithProviders(<RelatedProducts category="jewelery" />));
@@ -27,6 +31,16 @@ describe('RelatedProducts', () => {
             screen.getByText(jewelery[2].title);
             screen.getByText(jewelery[3].title);
         })
-    })
+    });
+
+    if('Handle click in slider', () => {
+        render(renderWithProviders(<RelatedProducts category="jewelery" />));
+        const slider = screen.getByTestId("slider");
+        const leftButton = screen.getByText("<");
+        const rightButton = screen.getByText(">");
+
+    });
+
+    it.todo('handle click in slider');
 
 })

@@ -10,8 +10,7 @@ export const getSingleItemFromApi = async (id) => {
         const json = await response.json();
         return json;
 
-    } catch (err) {
-
-        return err;
+    } catch (Error) {
+        return Error;
     }
 }
