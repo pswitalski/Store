@@ -1,7 +1,9 @@
 export const currency = {
     currencyModalOpen: false,
     currentCurrency: "usd",
-    exchangeRate: {}
+    exchangeRate: {
+        symbol: "$"
+    }
 }
 
 export const currencyEur = {
