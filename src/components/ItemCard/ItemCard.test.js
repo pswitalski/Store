@@ -3,7 +3,7 @@ import ItemCard from './ItemCard';
 import { renderWithProviders } from 'helpers/renderWithProviders';
 import { render, screen } from '@testing-library/react';
 
-import { item } from 'mocks/item';
+import { item } from '__mocks__/item';
 
 describe('ItemCard', () => {
     it('Renders the component', () => {

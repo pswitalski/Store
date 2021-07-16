@@ -3,7 +3,7 @@ import ProductName from './ProductName';
 import { render, screen } from '@testing-library/react';
 import { renderWithProviders } from 'helpers/renderWithProviders';
 
-import { item } from 'mocks/item';
+import { item } from '__mocks__/item';
 
 describe('ProductName', () => {
     it('Renders the component', () => {

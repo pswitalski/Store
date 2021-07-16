@@ -3,7 +3,7 @@ import RelatedProducts from './RelatedProducts';
 import { render, screen, waitForElementToBeRemoved, waitForDomChange, fireEvent } from '@testing-library/react';
 import { renderWithProviders } from 'helpers/renderWithProviders';
 
-import { jewelery } from 'mocks/jewelery';
+import { jewelery } from '__mocks__/jewelery';
 
 import fetchMock from 'jest-fetch-mock';
 

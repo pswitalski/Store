@@ -3,7 +3,7 @@ import Price from './Price';
 import { render, screen } from '@testing-library/react';
 import { renderWithProviders} from 'helpers/renderWithProviders';
 import * as reactRedux from 'react-redux';
-import { currency, currencyEur, currencyGbp, currencyPln } from 'mocks/currency';
+import { currency, currencyEur, currencyGbp, currencyPln } from '__mocks__/currency';
 
 describe('Price', () => {
 

@@ -3,7 +3,7 @@ import Comment from './Comment';
 import { renderWithProviders } from 'helpers/renderWithProviders';
 import { render, screen } from '@testing-library/react';
 
-import { comment } from 'mocks/comment';
+import { comment } from '__mocks__/comment';
 
 describe('Coment', () => {
     it("Renders the component", () => {

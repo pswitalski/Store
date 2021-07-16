@@ -1,5 +1,5 @@
 import { getSingleItemFromApi } from "./getSingleItemFromApi";
-import { item } from 'mocks/item';
+import { item } from '__mocks__/item';
 
 // import fetchMock from 'jest-fetch-mock';
 
@@ -11,7 +11,7 @@ describe('getSingleItemFromApi', () => {
         fetch.resetMocks();
     });
 
-    it('return item', async () => {
+    it('returns item', async () => {
         fetch.mockResponseOnce(JSON.stringify(item))
 
         const response = await getSingleItemFromApi(1);

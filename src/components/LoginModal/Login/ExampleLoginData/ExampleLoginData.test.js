@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import ExampleLoginData from './ExampleLoginData';
 import { renderWithProviders } from 'helpers/renderWithProviders';
 import * as reactRedux from 'react-redux';
-import { user } from 'mocks/user';
+import { user } from '__mocks__/user';
 
 
 describe('ExampleLoginData', () => {
