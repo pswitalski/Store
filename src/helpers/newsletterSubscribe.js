@@ -1,7 +1,7 @@
 export const newsletterSubscribe = (email) => {
     const url = 'https://jsonplaceholder.typicode.com/posts';
 
-    if (email === '') return 'You must enter email'
+    if (email === '') return 'You must enter email';
 
     const postDataToApi = async () => {
 
@@ -18,7 +18,7 @@ export const newsletterSubscribe = (email) => {
             });
 
             if (!response.ok) {
-                const message = 'Something wend wrong. Try again.';
+                const message = 'Something went wrong. Try again.';
                 throw new Error(message);
             }
             const json = await response.json();
@@ -26,7 +26,7 @@ export const newsletterSubscribe = (email) => {
 
         } catch(err) {
 
-            return err;
+            return err.message;
         }
     }
     return postDataToApi();

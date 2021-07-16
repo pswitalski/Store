@@ -1,6 +1,5 @@
 export const sendNewUserToApi = async (data) => {
     if (!data) return 'Please pass user data.';
-
     const url = 'https://jsonplaceholder.typicode.com/users';
 
     try {
