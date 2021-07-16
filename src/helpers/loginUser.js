@@ -4,7 +4,6 @@ export const loginUser = async (data) => {
     const url = 'https://reqres.in/api/login';
 
     try {
-        console.log('try')
         const response = await fetch(url, {
             method:'POST',
             headers : {
@@ -16,15 +15,12 @@ export const loginUser = async (data) => {
             })
         });
 
-        console.log(response)
-
         if (!response.ok) {
             const message = 'Email or password invalid.';
             throw new Error(message);
         }
 
-        const json = response.json();
-        console.log(json)
+        const json = await response.json();
         return json;
 
     } catch(err) {
