@@ -28,7 +28,6 @@ const Login = ({changeMode}) => {
     const onSubmit = async (data) => {
 
        const response = await loginUser(data);
-       console.log(response.token)
 
        if (response === 'Email or password invalid.') {
         setApiError(response);
