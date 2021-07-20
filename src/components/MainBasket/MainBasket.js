@@ -6,7 +6,7 @@ import BasketItem from 'components/BasketItem/BasketItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearBasket } from 'features/basket/basketSlice';
 
-import { StyledMainBasket, StyledHeader, StyledItemsContainer, StyledSummaryContainer, StyledH1, StyledButton, StyledP, StyledSpan, StyledLink } from './MainBasket.styles';
+import { StyledMainBasket, StyledHeader, StyledItemsContainer, StyledSummaryContainer, StyledH1, StyledP, StyledSpan, StyledLink } from './MainBasket.styles';
 
 const MainBasket = () => {
 
