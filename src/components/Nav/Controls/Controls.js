@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { open } from 'features/navOpen/navOpenSlice';
 import { toggleLoginModal, closeLoginModal } from 'features/loginModalOpen/loginModalSlice';
-import { toggleUserProfileModal, closeUserProfileModal } from 'features/currentUser/currentUserSlice';
+import { toggleUserProfileModal } from 'features/currentUser/currentUserSlice';
 import { toggleCurrencyModal, closeCurrencyModal } from 'features/currency/currencySlice';
 import { toggleShoppingCartModal, closeShoppingCartModal } from 'features/basket/basketSlice';
 import { toggleSearchModalOpen, closeSearchModalOpen } from 'features/search/searchSlice';

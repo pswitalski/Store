@@ -14,7 +14,7 @@ import Comments from './Comments/Comments';
 
 const ProductPageBody = ({product}) => {
 
-    const {id, title, price, description, category, image} = product;
+    const {id, title, price, description, image} = product;
 
     const dispatch = useDispatch();
 
