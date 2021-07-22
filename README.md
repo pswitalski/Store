@@ -13,6 +13,7 @@ Project is created with:
 * Redux Toolkit
 * Styled Components
 * React Hook Form
+* React Testing Library
 
 ## Available Scripts
 
