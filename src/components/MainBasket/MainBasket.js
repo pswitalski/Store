@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Button from 'components/ItemCard/Button/Button';
 import BasketItem from 'components/BasketItem/BasketItem';
@@ -28,6 +28,29 @@ const MainBasket = () => {
         return items;
     }
 
+    const [calculatedValue, setCalculatedValue] = useState(0);
+
+    const currency = useSelector(state => state.currency.currentCurrency);
+    const exchangeRate = useSelector(state => state.currency.exchangeRate);
+
+    useEffect(() => {
+        switch(currency) {
+            case 'eur':
+                setCalculatedValue(total * exchangeRate.eur);
+                break;
+            case 'pln':
+                setCalculatedValue(total * exchangeRate.pln);
+                break;
+            case 'gbp':
+                setCalculatedValue(total * exchangeRate.gbp);
+                break;
+            default:
+                setCalculatedValue(total);
+                break;
+        }
+    }, [total, exchangeRate, currency])
+
+
     return(
         <StyledMainBasket>
             <StyledHeader>
@@ -42,7 +65,7 @@ const MainBasket = () => {
                 <StyledH1>Summary</StyledH1>
                 <StyledP>
                     Total:
-                    <StyledSpan>{` ${currencySymbol} ${total.toFixed(2)}`}</StyledSpan>
+                    <StyledSpan>{` ${currencySymbol} ${calculatedValue.toFixed(2)}`}</StyledSpan>
                 </StyledP>
                 <StyledP>Shipping: <StyledSpan>FREE!</StyledSpan></StyledP>
                 <StyledLink to="/checkout" >
