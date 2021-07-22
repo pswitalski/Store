@@ -36,7 +36,7 @@ const ShoppingCartTotal = () => {
                 Total
             </StyledP>
             <StyledValue>
-               {currencySymbol} {calculatedValue.toFixed(2)}
+               {currencySymbol} {calculatedValue ? calculatedValue.toFixed(2) : '0.00'}
             </StyledValue>
         </StyledShoppingCartTotal>
     )
