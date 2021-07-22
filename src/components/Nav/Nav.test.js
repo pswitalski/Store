@@ -12,6 +12,14 @@ jest.mock('./NavMenu/NavMenu.js', () => {
     }
 })
 
+jest.mock('./Categories/Categories.js', () => {
+    return function DummyCategories() {
+        return(
+            <div>Categories</div>
+        )
+    }
+})
+
 describe('Nav', () => {
     it('Renders the component', () => {
         render(renderWithProviders(<Nav />));
