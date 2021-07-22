@@ -1,5 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
-
+# Store
+Store created with React and Redux for learning purpose. You can't buy anything here for real.
 ## Available Scripts
 
 In the project directory, you can run:
