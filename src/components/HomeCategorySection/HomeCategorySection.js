@@ -25,7 +25,7 @@ const HomeCategorySeciton = ({category}) => {
         const fetchFromApi = async () => {
             const items = await getItemsFromCategory(category);
 
-            if (typeof(items) === String) {
+            if (items === 'Something went wrong') {
                 setError(items);
                 return;
             }
